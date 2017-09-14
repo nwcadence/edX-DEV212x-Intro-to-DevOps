@@ -23,16 +23,15 @@ The written labs in this course depend on several free prerequisites. However, i
 
     Enter your Microsoft Account credentials.
 
-    ![Signing in to visualstudio.com](media/vsts-sign-in.png "Signing into visualstudio.com")
+    ![Signing in to visualstudio.com](media/ms_acct_signin.png "Signing into visualstudio.com")
 
 
 1. **Note**: If you do not have a Microsoft Account, then you will need to create one by clicking "Sign up now". Once you have created an account, you can sign in using that account.
-    ![No account in Visual Studio](media/vsts-sign-in-no-account.png)
+    ![No account in Visual Studio](media/ms_get_new.png)
 	
-	![](media/create-ms-account.png)
+	![](media/ms_new_account.png)
 
-    ![](media/confirm-name-vsts.png)
-1. Once you have signed in to your Microsoft account (or created a new one), you should see a panel to create a new Visual Studio Team Services account. Click on the "Create new account" button. 
+1. Once you have signed in to your Microsoft account (or created a new one), you should see a panel to create a new Visual Studio Team Services account. If you are not redirected [Click Here](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) Click on the "Free Account" button. 
 
     ![](media/create-new-vsts-account.png)
 
@@ -40,11 +39,7 @@ The written labs in this course depend on several free prerequisites. However, i
 	
 	- A unique Visual Studio Team Services account name
 	- Git as the version control for the team project
-	- A project name, such as "PartsUnlimited" or "Intro-to-DevOps"
-	- The Agile, Scrum, or CMMI template for organizing work in the project
-
-    > **Note**: The project template defines what work item types and workflows are available. The Hands-on-labs can be completed with any of the three
-    templates, but Agile or Scrum are more commonly used in DevOps organizations.
+![](media/vsts_new_acct.png)
 
 	Once you have filled out the information, press the continue button to create the Visual Studio Team Services account.
 
@@ -54,21 +49,20 @@ The written labs in this course depend on several free prerequisites. However, i
     - A project name - we recommend that you call the project _EdX_
     - Select the **Agile** process template
     - Select **Git** version control
-    - Click **Create project** button
+    - Click **Create** button
 
-	![](media/create-your-account.png)
+![](media/vsts_create_new_project.png)	
 
+1. Once the project is created, you will be redirected to the Team Project landing page. You will get started importing code in Lab 3.
 
-1. Once the project is created, you will be redirected to the Team Project dashboard. You can close the Congratulations dialog once you have read it.
+    ![The Team Project Landing](media/vsts_new_project_landing.png "The Team Project Landing")
 
-    ![The Team Project Dashboard](media/vsts-team-project-dashboard.png "The Team Project Dashboard")
-
-    _The Team Project Dashboard_
+    _The Team Project Landing Page_
     
 ## Task 2 - Create a Free Azure Trial account ####
 > **Note**: If you already have an Azure account, you can skip this step. However, you need to ensure that it is an account in which you are the account owner or administrator. In other words, if you create the account yourself, you can skip this step and just sign into your account. However, if someone else created the account and added you to the account, then you will need to ensure you have sufficient permissions. 
 
-1. To sign up for the Azure Free Trial, visit [Azure Free Trial](https://azure.microsoft.com/en-us/pricing/free-trial/), and log in with a Microsoft ID. (You can use the same ID you created or used when setting up the VSTS account.) _One catch is that you will need a credit card._ This card is not charged, but it used to prevent bots from creating hundreds of free trials and getting free compute. 
+1. To sign up for the Azure Free Trial, visit [Azure Free Trial](https://azure.microsoft.com/en-us/offers/ms-azr-0044p/), and log in with a Microsoft ID. (You can use the same ID you created or used when setting up the VSTS account.) _One catch is that you will need a credit card._ This card is not charged, but it used to prevent bots from creating hundreds of free trials and getting free compute. 
 
 	If you'd like to watch a video, showing how to sign up for a free Azure trial, visit the [Sign up for Azure](https://channel9.msdn.com/Blogs/Windows-Azure/Sign-up-for-Microsoft-Azure) video on Channel9.
 
