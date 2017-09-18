@@ -110,33 +110,37 @@ be necessary to run any infrastructure tasks during Staging or Production deploy
 	
 	Click on "Empty" to start with an empty	release and click OK.
 
-	* Select the PartsUnlimited Build that you created in Lab 3. Enable "Continuous Deployment" to queue a release whenever a new successful build is available. Ensure that the "Hosted" queue is selected in the Queue settings:
+	![](media/release_empty_process.png)	
 
-	![](media/60.png)
+	* Within the Artifacts pane Click **+ Add** to select the PartsUnlimited Build that you created in Lab 3. 
 	
-	* Click "Create"
+	![](media/60.png)
+
+	Enable "Continuous Deployment" to queue a release whenever a new successful build is available by clicking on the lightning bolt icon. Specify the branch you'd like to deploy (probably 'master').
+
+	![](media/release_CD.png)
+	
 	* The template has created a single Environment (called Environment 1).
 	* Click the pencil icon next to the name and rename this Release Definition to "PartsUnlimited".
+	* Click the Save button to make sure that you can save the Release Definition. You do not have to enter comments when saving.
 
 	![](media/61.png)
 
-	* Click the Save button to make sure that you can save the Release Definition. You do not have to enter comments when saving.
-
-	* Click the name label on the the first environment card and change the name to "Dev".
+	
+	* Click the name label on the the first environment card to open the environment properties and change the name to "Dev".
 	
 		![](media/12.png)
 	
-	* Click on the "+ Add tasks" button to add a task for this environment. If you are presented with the following dropdown, then cancel and click the button again, since we do not need "containers" for this release.
+	* Move to the Tasks tab by clicking on Tasks or on the tasks in the Environment pane.
 		![](media/62.png)	
-		
-		> **Note**: It is possible to create "containers" of tasks - some that run on agent and some that run on the server. At present, the only "server" task that exists is the Manual Intervention task. All other tasks are "agent" tasks.
 
-		In the "Deploy" group, click the "Add" button next to "Azure Resource Group Deployment" to add the task. Close the "ADD TASKS" dialog.
+	* Within the Add tasks pane search for 'Azure Resource Group Deployment'.  Select the task to add it to the Agent phase.
+
+		> **Note**: It is possible to create "phases" of tasks - some that run on agent and some that run on the server. At present, the only "server" tasks that exists are the Manual Intervention and invoke REST API tasks. All other tasks are "agent" tasks.
 	
 		![](media/42.png)
 		
 	* Click on the "Azure Resource Group Deployment" task. Configure it as follows:
-		* `Azure Connection Type`: select "Azure Resource Manager"
 		* `Azure RM Subscription`: select the Azure endpoint that you created in Task 2
 		* `Action`: select "Create or Update Resource Group"
 		* `Resource Group`: select an existing name (if any) or enter a name for your resource group. This must be unique in your Azure
@@ -174,11 +178,11 @@ be necessary to run any infrastructure tasks during Staging or Production deploy
 		* Your configuration should look something like the following:
 		![](media/configureArmStep.png)
 		
-	* Click on the ellipsis (...) button next to the Environment and select "Configure variables..."
+	* Click on the Variables tab.
 
 		![](media/44.png)
 
-	* Create the following variables, adding values too.
+	* Create the following variables, add values, and verify the scope is correct.  The 'Release' scope is the entire release definition.
 		* **WebsiteName** - Name of the website in Azure (this must be globally unique)
 		* **ServerName** - Prefix for the name of the database servers. Will have `-dev` or `-stage` added for dev/staging
 		* **HostingPlan** - Name of the hosting plan for the website
@@ -200,7 +204,7 @@ be necessary to run any infrastructure tasks during Staging or Production deploy
 
 	![](media/45.png)
 	
-	* Select the latest build from the drop-down. You will see that deployment to the "Dev" environment is set to automatic, meaning that it will run the tasks for the "Dev" environment immediately after creating the release.
+	* Select the latest build from the drop-down, if it doesn't automatically populate. You will see that deployment to the "Dev" environment is set to automatic, meaning that it will run the tasks for the "Dev" environment immediately after creating the release.
 	Click "Create" to start the release.
 
 	![](media/46.png)
@@ -211,46 +215,49 @@ be necessary to run any infrastructure tasks during Staging or Production deploy
 	
 	* Click on the Logs link to open and monitor the deployment logs.
 	
-	* You should see a successful release after a few minutes.
+	* If the initial deployment fails with a 'Conflict Error', redeploy the release.
+	
+	![](media/azure_conflict_error.png)
+
+	* Success!
 
 	![](media/51.png)
+
 	* If you log into the Azure Portal, you will see the Resource Group has been created. By drilling into the Resources, you can see all of the resources automatically created by executing this task.
 
 	![](media/52.png)
-	
+
 	> NOTE: You can run this task repeatedly, since it is _idempotent_. Additionally, updates to the underlying template will modify an already deployed Resource Group.
 	
 1. Add Web Deployment Tasks to Deploy the Web App
 
 	Now that the infrastructure deployment is configured, you can add a task to deploy the web app to Dev.
 		
-	* Click on the Dev environtment in the Release Definition. Then click "+ Add tasks".
+	* Click on the Tasks dropdown in the PartsUnmlimited Release Definition. Then click "+" in the Agent phase.
 	* Select the "Deploy" group in the left and click the add button next to "Azure App Service Deploy" to add the task.
-Close the task selector dialog.
-	* Click on the "Azure App Service Deploy" Task. And configure according to the steps below.
+
+		![](media/release_add_deploy.png)
+
+	* On the left pane, Click on the "Azure App Service Deploy" Task. And configure according to the steps below.
 		* `AzureRM Subscription`: select the AzureRM Service Endpoint you created earlier
 		* `Web App Name`: enter `$(WebsiteName)` to use a variable. You defined this variable earlier when deploying
 		* Check the `Deploy to Slot` checkbox to open settings for the deployment slot
 		* `Resource Group`: Select (or enter) the same resource group that you entered in the Azure Deployment task
 		* `Slot`: enter "dev". This will deploy the site to the "dev" deployment slot. This allows you
 		to deploy the site to an Azure deployment slot without affecting the Production site.
-		* `Package`: click the ellipsis (...) button and browse to the PartsUnlimitedWebsite.zip file and click OK.
+		* `Package`: The default option will search for any .ZIP file in the artifact drop. Click the ellipsis (...) button and browse to a specific file if needed and click OK.  A drop with multiple ZIP files will fail due to indeterminancy.
 	
-		![](media/10.png)
 		* The Task should look like this:
 	
 		![](media/11.png)
-	> **Note**: It is a good practice to run smoke tests to validate the website after deployment, or to run load tests. The code-base you are using
-	does not have any such tests defined. You can also add a task to run quick cloud-performance tests to validate that the site is up and running. For more 
-	information on quick load tests, see [this video](https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/Cloud-Loading-Testing-in-Visual-Studio-Team-Service)
+	
+	> **Note**: It is a good practice to run smoke tests to validate the website after deployment, or to run load tests. The code-base you are using does not have any such tests defined. You can also add a task to run quick cloud-performance tests to validate that the site is up and running. For more information on quick load tests, see [this video](https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/Cloud-Loading-Testing-in-Visual-Studio-Team-Service)
 	from around the 6 minute mark. 
 	
 	* Promote the WebSite Environment variable to a Release Variable so it can be used across multiple environments.
-		* Click on the "Dev" environment, click the ellipsis (...) button select "Configure Variables".
-		* Make a note of the `WebsiteName` variable value and delete it from this list. Click OK.
-		* Click on "Configuration" to open the Release variables. These are "global" variables that any Environment can use.
-		* Enter "WebsiteName" for the name and enter the value for the Website in Azure.
-
+		* Click on the Variables tab
+		* Change the dropdown for WebsiteName to Release.
+		
 		![](media/53.png)
 		
 	* Click Save to save the Release Definition.
@@ -262,14 +269,14 @@ Close the task selector dialog.
 
 	* Click on the "+ Release" button and select Create Release.
 	
-	![](media/15.png)
+	![](media/46.png)
 	* You can enter a Release Description if you want to.
 	* Select the latest build from the HOL Build drop down.
 	* If necessary, click on the Dev Environment to set it as the target environment for this Release. 
 	* Click Create.
 	* Click the Release link to open the Release.
 	
-	![](media/21.png)
+	![](media/47.png)
 	* Click on the Logs link to open the deployment logs.
 	* Once the deployment completes, you can check that the site was in fact deployed successfully by navigating to the
 	site url.
@@ -287,27 +294,26 @@ Close the task selector dialog.
 	* Click on the PartsUnlimited link and then the Edit link to open the Release Definition.
 	> **Note:** It is possible to change the definition for a Release without changing the Release Definition (i.e. the Release is an instance of the Release Definition that you can edit). You want to make sure that you are editing the Release Definition, not a Release.
 	
-	* Click the ellipsis (...) on the Dev Environment card and select "Clone environment".
+	* Hover over the Dev environment and the clone button will appear below.  Select "Clone".
 	
 	![](media/28.png)
-	* Leave the dialog with the default values. You will assign approvers for the Staging environment shortly. You also want the trigger for the Staging environment to be a successful deployment to Dev (the default trigger).
+
 	* A new Environment (called "Copy of Dev") appears. Rename the Environment to "Staging".
 	* Delete the "Azure Resource Group Deployment" task. This is not required in this Environment since the ARM template deployed
 	the infrastructure for all 3 environments.
-	* Click the ellipsis (...) on the Staging Environment card and select "Configure variables".
-	* Delete all the variables. These are used by the "Azure Resource Group Deployment" task which you just deleted, so they are not
-	necessary in this Environment.
 	* On the Azure Web App Deployment task, set the Slot to `staging`.
+	* Click the Variables tab.
+	* Delete all the variables associated with the staging scope. These are used by the "Azure Resource Group Deployment" task in the Dev environment.
 	
 	![](media/29.png)
-	
+
 	> **Note**: If you had environment-specific variables, you would be able to set Staging-specific values. It is not necessary in this case.
 	
 	* In the Dev Environment, you did not define any approvers. For Staging, however, you should
 	configure approvers. For this HOL, you can be both incoming and the outgoing approver.
-	> **Pre-deployment approvers** must approve a deployment coming _into_ the environment. The deployment will stop and wait
+	> **Pre-deployment approvers** (left button) must approve a deployment coming _into_ the environment. The deployment will stop and wait
 	before executing any tasks in the environment until approval is granted.<br/>
-	**Post-deployment approvers** approve deployments so that the _next_ Environment can begin. They act as sign-off
+	**Post-deployment approvers** (right button) approve deployments so that the _next_ Environment can begin. They act as sign-off
 	for the current environment.<br/>
 	**Approvers** can be individuals or groups.
 	
@@ -315,9 +321,11 @@ Close the task selector dialog.
 	they don't suddenly get a new build unexpectedly.
 	* Configure approvers and notifications for the Staging environment.
 	
-	![](media/33.png)
+	> **Note**: Adding multiple users or groups on the pre- or post-approval sections allows you to define the order of approval rules for the list of users.
 
-	> **Note**: Clicking "More Options" on the pre- or post-approval sections allows you to define approval rules for the list of users.
+	* The timeout feature can reject a release if a user or group takes to long for approval.  The default is 30 days; maximum is 365 days.  The resolution of the timeout is minutes.
+
+	![](media/34.png)
 	
 	* Save the Release Definition.
 
@@ -326,9 +334,9 @@ Close the task selector dialog.
 		* Update the approvers - again, you can be both approvers.
 	
 	* Save the Release Definition.
-	
-	![](media/34.png)
-	
+
+	![](media/release_completed_pipeline.png)
+
 ### 4: Create a Release
 Now that you have configured the Release Pipeline, you are ready to trigger a complete
 release.
@@ -336,7 +344,7 @@ release.
 * Click on "+ Release" to create a new Release.
 * Select the latest build from the build list and click Create.
 
-	![](media/36.png)
+	![](media/46.png)
 	
 * Once the Dev stage has completed deployment, you will see a notification that
 an approval is pending (you will also have received an email to this effect).
@@ -344,14 +352,14 @@ Check the dev slot of the PartsUnlimited site in Azure to ensure that the Dev
 environment is good, and then click Approve.
 	
 	![](media/37.png)
+
 * You can also see pending approvals in the overview pane:
 
 	![](media/32.png)
 
+	![](media/release_environment_approval.png)
 
 * Optionally enter a comment and click the Approve button.
-
-	![](media/38.png)
 
 	* This will trigger the release into the Staging environment.
 	> **Note**: You can reassign the approval if required. Also, you may choose to have fewer approval steps to go from one environment to the next. 
