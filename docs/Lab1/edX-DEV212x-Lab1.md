@@ -80,7 +80,7 @@ The written labs in this course depend on several free prerequisites. However, i
 	![](media/add-git-path.png)
     	
 ## Optional - Visual Studio Community ####
-If you are on a Windows OS, and do not have Visual Studio 2015 Professional or Enterprise editions, then you can download and
-install [Visual Studio 2015 Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) for free. It is not required for any of the labs, however it will be used in some of the demos. In every case, alternate approaches (browser or git command line) will be demonstrated.
+If you are on a Windows OS, and do not have Visual Studio 2017 Professional or Enterprise editions, then you can download and
+install [Visual Studio 2017 Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) for free. It is not required for any of the labs, however it will be used in some of the demos. In every case, alternate approaches (browser or git command line) will be demonstrated.
 
 

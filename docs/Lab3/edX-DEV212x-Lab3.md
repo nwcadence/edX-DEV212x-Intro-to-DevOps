@@ -129,11 +129,11 @@ We will now test the **Continuous Integration build (CI)** build we created in *
 In this lab, you learned how to add an existing Git repo to a project in Visual Studio, create a Continuous Integration build definition to compile, test, and publish build artifacts, and the end-to-end workflow of committing code to master and automatically triggering a build. 
 
 ## Further Reading
-1. [Release Management for Visual Studio Team Services](https://msdn.microsoft.com/Library/vs/alm/release/overview-rmpreview)
-2. [Cloud Load Testing in Visual Studio Team Services](https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/Cloud-Loading-Testing-in-Visual-Studio-Team-Service)
+1. [Release Management for Visual Studio Team Services](https://www.visualstudio.com/team-services/release-management/)
+2. [Cloud Load Testing in Visual Studio Team Services](https://www.visualstudio.com/team-services/cloud-load-testing/)
 
 The following are other PartsUnlimited Hands on Labs that you can try in your own time. **These are not required for the EdX course!**:
 
-1. [User Telemetry with Application Insights](https://github.com/Microsoft/PartsUnlimited/blob/hands-on-labs/docs/HOL_PartsUnlimited_HDD-User-Telemetry/HOL_PartsUnlimited_HDD-User-Telemetry.md)
-2. [Testing in Production with Azure Websites - PartsUnlimited](https://github.com/Microsoft/PartsUnlimited/blob/hands-on-labs/docs/HOL_HDD_Testing_in_Production/HDD%20Testing%20in%20Production%20with%20Azure%20Websites%20HOL.md)
-3. [Application Performance Monitoring - PartsUnlimited](https://github.com/Microsoft/PartsUnlimited/blob/hands-on-labs/docs/HOL_PartsUnlimited_Application_Performance_Monitoring/HOL_PartsUnlimited_Application_Performance_Monitoring.md)
+1. [User Telemetry with Application Insights - PartsUnlimited](https://github.com/Microsoft/PartsUnlimited/tree/master/docs/HOL_User_Telemetry_APM_With_App_Insights)
+2. [Testing in Production with Azure Websites - PartsUnlimited](https://github.com/Microsoft/PartsUnlimited/tree/master/docs/HOL-HDD_Testing_in_Production)
+3. [Usage analysis for web applications - PartsUnlimited](https://github.com/Microsoft/PartsUnlimited/tree/master/docs/HOL-Usage_Analysis_With_Application_Insights)
