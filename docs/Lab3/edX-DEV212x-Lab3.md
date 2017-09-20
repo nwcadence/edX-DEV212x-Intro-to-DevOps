@@ -17,7 +17,7 @@ pushed to Visual Studio Team Services.
 
 ### Tasks Overview: ###
 
-**1. Import Source Code into your VSTS Account:** In this step, you will connect your own Visual Studio Team Services account, download the PartsUnlimited source code, and then push it to your own Visual Studio Team Services account. There are two approaches to doing this. 1) Use the Git command line, or 2) Use Visual Studio. The Git command line is the cleanest and easiest approach, but it does require some familiarity with the Git command line (hopefully learned from Lab 2). 
+**1. Import Source Code into your VSTS Account:** In this step, you will import from GitHub into your own Visual Studio Team Services account.
 
 **2. Create Continuous Integration Build:** In this step, you will create a build definition that will be triggered every time a commit is pushed to your repository in Visual Studio Team Services. 
 
@@ -25,122 +25,22 @@ pushed to Visual Studio Team Services.
 
 # Get Started #
 
-## 1a: Import Source Code into your VSTS Account with Git Command Line
+## 1: Import Source Code into your VSTS Account ##
+If you are not at the project landing page, navigate to it.
 
-> Note: Use this to approach to use the Git command line to migrate code from GitHub to VSTS. Make sure that you have installed Git and added it to the path from the [task in Lab 1](https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps/blob/master/docs/Lab1/edX-DEV212x-Lab1.md#task-3---download-and-install-git). If you use this approach, skip section 1b. 
+   ![The Team Project Landing](media/vsts_new_project_landing.png "The Team Project Landing")
 
-We want to push the application code to your Visual Studio Team Services account in
-order to use Build.
+Click on **> or import a repository** to expose the Import button and click it.
 
-**1.** Navigate to [https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps](https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps) and copy the URL to the repo. (These steps all use the HTTPS protocol.)  This step will save you from having to type the full URL later.
+![](<media/vsts_import.png>)
 
-![](<media/clone.png>)
+Copy in the URL of your source code (https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps).  If this were a repository that requried authorization clicking the box for authorization exposes the required fields.
 
-**2.** Create a parent **Working Directory** on your local file system. For instance, on Windows OS you can create the following directory:
+![](<media/vsts_import_dialog.png>)
 
-`C:\Source\Repos`
+![](<media/vsts_import_success.png>)
 
-Open a command line window (one that supports Git such as Git Bash) and change to the directory you created above. If not using Git Bash, ensure that Git is in the path for a command line window by typing in `git`. If it isn't, either use Git Bash (installed by default) instead or follow the last steps from the [task in Lab 1](https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps/blob/master/docs/Lab1/edX-DEV212x-Lab1.md#task-3---download-and-install-git) to add it to the path again with the installation bits. 
-
-Clone the repository with the following command. You can paste in the URL if you copied it in Step 1.  In the example below, the clone will be copied into a directory named `PartsUnlimited`. Feel free to use whatever directory name you like, or leave it blank to use the default directory name:
-
-	git clone https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps.git PartsUnlimited
-
-After a few seconds of downloading, all of the code should now be on your local machine.
-
-Move into the directory that was just created.  In a Windows OS (and assuming you used PartsUnlimited as the directory name), you can use this command:
-
-	cd PartsUnlimited
-
-**3.** Remove the link to GitHub. 
-
-The Git repo you just downloaded currently has a remote called _origin_ that points to the GitHub repo.  Since we won't be using it any longer, we can rename it or delete it altogether. You can either delete or rename the remote.  (You can theoretically leave it called _origin_ and use a different name for the VSTS remote. However, in later labs we're going to assume that your remote pointing to VSTS is called _origin_, so I recommend you either delete or rename the repo.)
-
-To delete the GitHub remote, use:
-
-	git remote remove origin
-
-Otherwise, to rename the GitHub remote, use:
-
-	git remote rename origin github
-
-**4.** Find the URL to access the VSTS Git repo
-
-First, we need to find the URL to empty Git repository in VSTS.  The project landing page defaults to a getting started page that has the repo address. Alternatively, if you remember your account name, and the Team Project name you created, the URL to the default Git repo is easily assembled:
-
-	https://<account>.visualstudio.com\<project>\_git\<project>
-
-Or, you can use a web browser to browse to your account, click into your project, and click the Code tab to get to your default Git repository:
-
-	https://<account>.visualstudio.com
-
-The five most common methods of starting your project are outlined on the landing page.
-![](<media/vsts_new_project_landing.png>)
-
-**5.** Add the link to VSTS and push your local Git repo
-
-In the local directory from Step 3, use the following command to add VSTS as the Git remote named _origin_. You can either type the URL you found in Step 4, or simply copy the first command from the VSTS web page.
-
-	git remote add origin https://<account>.visualstudio.com\<project>\_git\<project>
-Now you can push the code, including history, to VSTS:
-
-	git push -u origin --all	
-
-Congratulations, your code should now be in VSTS!
-
-### 1b: Import Source Code into your VSTS Account with Visual Studio
-
-> Note: Use this to approach to use the Visual Studio to migrate code from GitHub to VSTS. If you use this approach, skip section 1a.  **We recommend going through approach 1a because history isn't migrated over when downloading the zip file from GitHub in approach 1b.**
-
-We want to push the application code to your Visual Studio Team Services account in
-order to use Build.
-
-**1.** First, we need to open Team Explorer. Go to your **account home
-page**:
-
-	https://<account>.visualstudio.com
-
-**2.** Connect to the VSTS account project (you may have called it EdX in Module 1) using Visual Studio (Note: in this image the Project is called HOL).
-
-![](<media/manage_connections.png>)
-
-
-![](<media/connect_to_vsts.png>)
-
-**3.** Navigate to [https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps](https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps) and download the repository as a zip.
-
-![](<media/download.png>)
-
-**4.** Create a **Working Directory** to the following location:
-
-`C:\Source\Repos\PartsUnlimited`
-
-**5.** Extract the zip file to the working directory that you just created. Note: when extracting be sure and “Unblock” the content or the deployment scripts won’t run
-
-![](<media/extract_parts_unlimited.png>)
-
-**6.** Clone the repo of your team project to the location where you extracted the sample. You may be asked to enter your password at this step.
-
-Set the **Working Directory** to the following location:
-
-`C:\Source\Repos\PartsUnlimited`
-
-![](<media/clone_vsts_repo_vs.png>)
-
-**7.** Click Open and navigate to the Parts Unlimited Project Solution in Solution Explorer
-
-![](<media/open_pu_solution.png>)
-
-**8.** Now we will add the source to the Git repo. Right click on the solution and click **Add to Source Control**.
-
-![](<media/add_solution_to_source_control.png>)
-
-**7.** The Changes windows will appear, add in checkin text and verify the source is ready to be committed. Click on **Commit and Sync**. Committing the changes will only record the edits in the local repository, so we will also sync the commits (pull for any new commits from VSTS, then push our commits to VSTS). 
-
-![](<media/commit_and_sync.png>)
-
-**9.** Once the changes have been committed, click on the **Code** hub at the top of
-the page. Verify the source is in the repo.
+Congratulations, your code is now in VSTS!  You will be redirected to the code / Files tab shortly.
 
 ![](<media/parts_unlimited_vsts.png>)
 
