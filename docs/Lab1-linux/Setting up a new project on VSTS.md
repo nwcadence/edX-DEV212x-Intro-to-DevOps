@@ -33,14 +33,14 @@ Creating your Visual Studio Team Services account
 
 5.  In the upper right-hand corner, click the **Sign In** link.
 
-    ![](images/project/image2.png)
+    ![](media/image2.png)
 
 6.  The site redirects you to a log in page like the following if you’re
     not already logged in (If you don’t see the following screen
     continue to the next step). Enter your e-mail address for your
     Microsoft account and its password and click **Sign in**.
 
-    ![](images/project/image3.png)
+    ![](media/image3.png)
 
 7.  Once you’ve logged in, you might be greeted with a page (*if not,
     jump to the next step*), like the following, that will allow you
@@ -52,7 +52,7 @@ Creating your Visual Studio Team Services account
     associated with your Microsoft account, change the address shown
     under the **We’ll reach you at:** field. Click **Continue**.
 
-    ![](images/project/image4.png)
+    ![](media/image4.png)
 
     You should now be at the **My Information** page. You’ll jump from here to the account creation process.
 
@@ -85,24 +85,24 @@ Creating your Visual Studio Team Services account
 8.  On the right of the **My Information** page find the **Create a free
     account now** link and click it.
 
-    ![](images/project/image5.png)
+    ![](media/image5.png)
 
     Once you do this, the experience you get might vary. If this is your
     very first time creating a team project, you will be prompted to create
     an account. Generally, you will see a screen like the following.
 
-    ![](images/project/image6.png)
+    ![](media/image6.png)
 
 9.  Enter a value in the **Account URL** field. It is possible you might
     have to try a couple different names.
 
 10. Click the **Change Options** link.
 
-    ![](images/project/image7.png)
+    ![](media/image7.png)
 
 11. Select the appropriate region.
 
-    ![](images/project/image8.png)
+    ![](media/image8.png)
 
 12. Click the **Create Account** button.
 
@@ -117,7 +117,7 @@ Creating your Visual Studio Team Services account
     Continue to the steps after the following screen shot to fill in the
     details.
 
-    ![](images/project/image9.png)
+    ![](media/image9.png)
 
 14. Enter **jdev** in the **Project name** field for your Team Project.
     If you use **jdev** while you are doing in this lab, your screen
@@ -131,7 +131,7 @@ Creating your Visual Studio Team Services account
     README.md file to describe the project**. If you do not get the
     option, there is nothing to worry about. Just continue.
 
-    ![](images/project/image10.png)
+    ![](media/image10.png)
 
 18. Click **Create Project**. Visual Studio Team Services queues up a job to build your Team
     Project and, once again, in as little as a few seconds, you will
@@ -140,20 +140,20 @@ Creating your Visual Studio Team Services account
 19. Once done, you should be at your CODE hub in your Team Project.
     Continue reading if you don’t see a screen like below.
 
-    ![](images/project/image11.png)
+    ![](media/image11.png)
 
 20. If you don’t see the CODE hub but instead see a dialog like the
     following, click **Add code**. If you just see your Team Project’s
     home page, click the CODE hub link and continue.
 
-    ![](images/project/image12.png)
+    ![](media/image12.png)
 
 21. If your CODE hub looks a bit different than the figure from earlier
     (usually because you don’t have a README.md), click the **Create a
     ReadMe file** button. Once you’ve done this, you’re ready to
     continue on.
 
-    ![](images/project/image13.png)
+    ![](media/image13.png)
 
 Importing a Github Repo into VSTS
 ---------------------------------
@@ -165,11 +165,11 @@ In this task you will import code from a Github repo into VSTS.
 1. Click on the `jdev` team project to navigate to it. Click on Code in the blue toolbar at the top to open the Code Hub.
 1. Click on the repo drop-down in the upper left (in the grey toolbar) and select "Import repository"
 
-    ![Import a repository in the Code Hub](images/project/import-repo.png "Import a repository in the Code Hub")
+    ![Import a repository in the Code Hub](media/import-repo.png "Import a repository in the Code Hub")
 
 1. Enter the following url: `https://github.com/nwcadence/MyShuttle2.git` and click Import.
 
-    ![Enter the URL](images/project/import-myshuttle2-url.png "Enter the URL")
+    ![Enter the URL](media/import-myshuttle2-url.png "Enter the URL")
 
 1. After a few moments, the code will be imported.
 
@@ -181,11 +181,11 @@ In this task you will import the MyShuttleCalc code from Github into VSTS. If yo
 1. Click on the `jdev` team project to navigate to it. Click on Code in the blue toolbar at the top to open the Code Hub.
 1. Click on the repo drop-down in the upper left (in the grey toolbar) and select "New repository".
 
-    ![Import a repository in the Code Hub](images/project/import-repo.png "Import a repository in the Code Hub")
+    ![Import a repository in the Code Hub](media/import-repo.png "Import a repository in the Code Hub")
 
 1. Enter the following url: `https://github.com/nwcadence/MyShuttleCalc.git` and click Import.
 
-    ![Enter the URL](images/project/import-myshuttlecalc-url.png "Enter the URL")
+    ![Enter the URL](media/import-myshuttlecalc-url.png "Enter the URL")
 
 1. After a few moments, the code will be imported.
 
