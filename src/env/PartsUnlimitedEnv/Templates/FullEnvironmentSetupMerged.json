@@ -543,6 +543,44 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "blue",
+                    "type": "slots",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2014-11-01",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/sites', parameters('WebSiteName'))]"
+                    ],
+                    "properties": {
+                    },
+                    "resources": [
+                        {
+                            "name": "connectionstrings",
+                            "type": "config",
+                            "apiVersion": "2014-11-01",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/sites/slots', parameters('WebSiteName'), 'blue')]"
+                            ],
+                            "properties": {
+                                "DefaultConnectionString": { 
+                                    "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('PartsUnlimitedServerName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('PartsUnlimitedDBName'), ';User Id=', parameters ('PartsUnlimitedServerAdminLogin'), '@', variables('PartsUnlimitedServerName'), ';Password=', parameters('PartsUnlimitedServerAdminLoginPassword'), ';')]",
+                                    "type": "SQLAzure" 
+                                }
+                            }
+                        },
+                        {
+                            "name": "appsettings",
+                            "type": "config",
+                            "apiVersion": "2014-11-01",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/sites/slots', parameters('WebSiteName'), 'blue')]"
+                            ],
+                            "properties": {
+                                "Keys:ApplicationInsights:InstrumentationKey": "[reference(concat('Microsoft.Insights/components/', parameters('WebsiteName'), '-Insights')).InstrumentationKey]"
+                            }
+                        }
+                    ]
                 }
             ]
         },
