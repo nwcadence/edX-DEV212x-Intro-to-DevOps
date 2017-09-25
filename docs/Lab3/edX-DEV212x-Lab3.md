@@ -34,7 +34,7 @@ Click on **> or import a repository** to expose the Import button and click it.
 
 ![](<media/vsts_import.png>)
 
-Copy in the URL of your source code (https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps).  If this were a repository that requried authorization clicking the box for authorization exposes the required fields.
+Copy in the URL of your source code (https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps). Enter 'PartsUnlimited' as the name of the repo and clikc Import.
 
 ![](<media/vsts_import_dialog.png>)
 
