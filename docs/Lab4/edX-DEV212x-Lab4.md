@@ -14,7 +14,7 @@ Now you want to set up Release Management (a feature of Visual Studio Team Servi
 to be able continuously deploy the application to an Azure Web App. Azure Web Apps allow you to specify
 deployment slots - these can be used with Traffic Manager to perform A/B testing. Deployment slots
 are also commonly used for _hot swapping_. This allows you to deploy new code to a slot, test it and then
-hot swap it so that your site is never down. For the puroposes of this lab, we will use the slots to isolate
+hot swap it so that your site is never down. For the purposes of this lab, we will use the slots to isolate
 changes being introduced into the environment for testing purposes. Initially the
 app will be deployed to a `dev` deployment slot. The `staging` slot will require an
 approver before the app is deployed into it. Once another approval is done on the `staging` slot,
@@ -152,20 +152,21 @@ be necessary to run any infrastructure tasks during Staging or Production deploy
 		![](media/43.png)
 		* `Template Parameters`: click the "..." button and browse to the FullEnvironmentSetupMerged.param.json file
 		in the ARMTemplates folder.
-		* `Override Template Parameters`: Enter the following in a single line (shown split here for convenience):
-		```powershell
-		-WebsiteName $(WebsiteName) 
-		-PartsUnlimitedServerName $(ServerName)  
-		-PartsUnlimitedHostingPlanName $(HostingPlan) 
-		-CdnStorageAccountName $(StorageAccountName) 
-		-CdnStorageContainerName $(ContainerName) 
-		-CdnStorageAccountNameForDev $(StorageAccountName)-dev 
-		-CdnStorageContainerNameForDev $(ContainerName)-dev
-		-CdnStorageAccountNameForStaging $(StorageAccountName)-stage 
-		-CdnStorageContainerNameForStaging $(ContainerName)-stage 
-		-PartsUnlimitedServerAdminLoginPassword (ConvertTo-SecureString '$(AdminPassword)' -AsPlainText -Force) 
-		-PartsUnlimitedServerAdminLoginPasswordForTest (ConvertTo-SecureString '$(AdminTestPassword)' -AsPlainText -Force)
-		```
+		* `Override Template Parameters`: Enter the following in the dialog that can be opened from the elippses.  Some of the default values will be pulled from the param file.
+		
+			* WebsiteName $(WebsiteName) 
+			* PartsUnlimitedServerName $(ServerName)  
+			* PartsUnlimitedHostingPlanName $(HostingPlan) 
+			* CdnStorageAccountName $(StorageAccountName) 
+			* CdnStorageContainerName $(ContainerName) 
+			* CdnStorageAccountNameForDev $(StorageAccountName)-dev 
+			* CdnStorageContainerNameForDev $(ContainerName)-dev
+			* CdnStorageAccountNameForStaging $(StorageAccountName)-stage 
+			* CdnStorageContainerNameForStaging $(ContainerName)-stage 
+			* PartsUnlimitedServerAdminLoginPassword $(AdminPassword) 
+			* PartsUnlimitedServerAdminLoginPasswordForTest $(AdminTestPassword)
+		
+		![](media/release_override_param.png)
 				
 		> **Note**: If you open the FullEnvironmentSetupMerged.param.json file, you will see empty placeholders for these parameters.
 		> You could hard code values in the file instead of specifying them as "overrides". Either way is valid. If you do specify
