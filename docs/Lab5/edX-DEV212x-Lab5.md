@@ -50,7 +50,7 @@ Clicking on the Website.json file shows where the AppInsight key is integrated w
 
 ![](media/app_insight_web_key.png)
 
-App Insights is already setup on the PartsUnlimited website, so please generate some data by clicking on the production website (from [LAB 4](../Lab4/edX-DEV212x-Lab4.md)).
+App Insights is already setup on the PartsUnlimited website, so please generate some data by clicking on the production website (from [LAB 4](../Lab4/edX-DEV212x-Lab4.md)). Specifically, click on the categories "Brakes", "Oil", "Lighting", etc.
 
 
 ## Task 2: ##
@@ -66,26 +66,103 @@ If the dashboard doesn't have a link to your newly created Web App, Navigate to 
 
 ## Task 3: ##
 
-* Navigate to the AppInsight servcie for the production website.
+* Navigate to the AppInsight service for the production website.
 
-Review the metrics available in App Insights and then open the Analytics tab.
+Review the metrics available in App Insights. For the purposes of this lab we are interested in finding the number of clicks on each category of items in the store. Open the Analytics tab.
 
 ![](media/app_insight_overview.png)
 
-* Open a new query by clicking on the **+**.  This will help sort through the data.
+* Open a new query by clicking on the **+**.  This will help parse the data.
 
 ![](media/app_insight_newquery.png)
 
+We are interested in requests to the website and will be using the request table.  In the query type:
+```
+requests
+```
+
+Press "Go" after each change to the query to execute it against the current data.
+
+![](media/query1.png)
+
+The URL is not in an easy for parse format.  Extend the requests table with a new column called parsedurl that uses the parseurl and tolower functions to make the data we are interested in easy to retrieve.
+```
+extend parsedurl = parseurl(tolower(url))
+```
+
+![](media/query2.png)
+
+This provides every call made to the server, graphics, javascript, etc.  We aren't terribly interested in most of that information other than clicks to the store.  A filter on "/store/browse" fulfills the need and uses our parsedurl column we just generated.  Next, extract the category id from the query to get the specific category.
+
+```
+where parsedurl.Path == "/store/browse"
+extend categoryid = toint(parsedurl["Query Parameters"].categoryid)
+```
 
 
+![](media/query3.png)
+
+The category id is okay, but it is more clear if the categories are text related to the category. Add a datatable typed variable, before the query, with the conversion from category id to text.
+
+```
+let categories = datatable (categoryid:int, categoryname:string)
+[ 1, "Brakes",
+  2, "Lighting",
+  3, "Wheels & Tires",
+  4, "Batteries",
+  5, "Oil"];
+```
+
+![](media/query4.png)
+
+Now, join the conversion table with the requests from the website on categroryid.
+
+```
+join kind = inner (
+    categories
+) on categoryid
+```
+
+![](media/query5.png)
+
+For this lab we are only interest in the time and category.  Output only these two columns from the join.
+
+```
+project timestamp, category=categoryname
+```
+
+![](media/query6.png)
+
+Summarize the data by creating a count of category data and create a piechart to visualize the data.
+
+```
+summarize count() by category
+render piechart
+```
+
+![](media/query7.png)
+
+## Task 4: ##
+
+With the ability to view metrics about the site, we can now create two versions to compare effectiveness of a change, to beta test a new idea, or to troubleshoot a problem.  For this lab we notice that few customers are interested in our Oil at a 10% discount and hypothesize that a 15% discount may incent them to purchase.
+
+Log into your VSTS account and navigate to the Release Definition for PartsUnlimited.  Edit the PartsUnlimited definition.
+
+![](media/release_completed_pipeline.png)
+
+![](media/vsts_rename_prod.png)
+
+![](media/vsts_deploy_blue.png)
+
+![](media/vsts_add_traf.png)
+
+![](media/vsts_traf_config.png)
+
+![](media/vsts_blue_success.png)
+
+![](media/vsts_blue_success_edit.png)
+
+## Task 5: ##
 
 
-![](media/azure_web_app.png)
-
-* After selecting the App Service scroll down in the left blade until the **Development Tools** section appears.  Select the **Testing in Production** option.
-
-![](media/azure_testing_prod.png)
-
-* In the Testing in Production window select from the dropdown of defined slots.  Add or change the percentage of traffic allocated to each slot.  Higher percentage will make this easier to verify, but typically a feature would start with a low percentage and increase until it made sense to switch the staging and production.  The balance of traffic will be sent to the production slot.  Click save to activate the changes.
-
-![](media/testprod_split.png)
+## Task 6: ##
