@@ -25,27 +25,61 @@ Now that the code is in the wild, it would be nice to profile your visitors to u
 
 ## Tasks Overview:
 
-1. Verify the Application Insights is collecting data from the website.
+1. See how Application Insights is setup in ARM Templates
 
-1. Review of data collected.
+1. View Data in Azure Portal
 
-1. Use the 'Testing in Production Feature' to split off a portion of the traffic to the staging slot to A/B test a feature. 
+1. Query AppInsights and generate pie chart.
+
+1. Create a new environment for A/B testing and direct traffic to the new slot
+
+1. Modify code and see different versions of the site.
+
+1. Review in AppInsights to see results
+
 
 ## Task 1: ##
+
+* Navigate in your VSTS account to Files > PartsUnlimited > src > env > PartsUnlimitedEnv > Templates > AppInsights.json
+
+![](media/app_insight_template.png)
+
+Note the output of the InstrumentationKey which is needed by the Web App.
+
+Clicking on the Website.json file shows where the AppInsight key is integrated with the website
+
+![](media/app_insight_web_key.png)
+
+App Insights is already setup on the PartsUnlimited website, so please generate some data by clicking on the production website (from [LAB 4](../Lab4/edX-DEV212x-Lab4.md)).
+
+
+## Task 2: ##
+
+Let's go look at the data from the clicks.
+
 * Log into the Azure Portal
 
 If the dashboard doesn't have a link to your newly created Web App, Navigate to the App Insights Panel via Resource Groups > YourWebsiteName-DevInsights
 
 ![](media/open_app_insights.png)
 
-![](media/placeholder_app_data.png)
-
-## Task 2: ##
-
 
 ## Task 3: ##
 
-* Navigate to the App Service running the website.
+* Navigate to the AppInsight servcie for the production website.
+
+Review the metrics available in App Insights and then open the Analytics tab.
+
+![](media/app_insight_overview.png)
+
+* Open a new query by clicking on the **+**.  This will help sort through the data.
+
+![](media/app_insight_newquery.png)
+
+
+
+
+
 ![](media/azure_web_app.png)
 
 * After selecting the App Service scroll down in the left blade until the **Development Tools** section appears.  Select the **Testing in Production** option.
