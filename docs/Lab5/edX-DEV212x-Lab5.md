@@ -150,36 +150,36 @@ Log into your VSTS account and navigate to the Release Definition for PartsUnlim
 
 ![](media/release_completed_pipeline.png)
 
-Rename prod
+Rename the production environment to differentiate it from our main production.
 
 ![](media/vsts_rename_prod.png)
 
-Deploy create env
+Deploy code to the blue slot by enabling "Deploy to slot" and providing a slot identifier.
 
 ![](media/vsts_deploy_blue.png)
 
-Add traffic mngr to divert traffic
+Add Route Traffic task to divert traffic to the blue slot.
 
-![](media/vsts_add_traf.png)
+![](media/vsts_add_traff.png)
 
-Config traffic mngr
+Use variables defined in the release to configure the traffic manager.
 
 ![](media/vsts_traf_config.png)
 
-If blue succeeds swap blue/prod.
+Clone a new environment for the experimental change being successfull.
 
 ![](media/vsts_blue_success.png)
 
-If blue fails effectively do nothing
+If blue fails, don't change production, but remove the traffic being sent to that slot.
 
 ![](media/vsts_blue_success_edit.png)
 
 ## Task 5: ##
 
-Modify code and deploy to blue slot
+Modify code to increase the Oil discount to 15% (HomeController) and deploy to blue slot just as demonstrated in Lab 3 & Lab 4.  With the continuous integration and continuous deployment pipelines built this should be relatively fast.
 
-Click on website to see differences
+Open website to see differences.  Use a header of x-ms-blue to see override the route traffic to the blue slot.
 
 ## Task 6: ##
 
-Review in app insights & promote if desired
+Review in app insights.
