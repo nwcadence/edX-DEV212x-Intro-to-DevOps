@@ -150,19 +150,36 @@ Log into your VSTS account and navigate to the Release Definition for PartsUnlim
 
 ![](media/release_completed_pipeline.png)
 
+Rename prod
+
 ![](media/vsts_rename_prod.png)
+
+Deploy create env
 
 ![](media/vsts_deploy_blue.png)
 
+Add traffic mngr to divert traffic
+
 ![](media/vsts_add_traf.png)
+
+Config traffic mngr
 
 ![](media/vsts_traf_config.png)
 
+If blue succeeds swap blue/prod.
+
 ![](media/vsts_blue_success.png)
+
+If blue fails effectively do nothing
 
 ![](media/vsts_blue_success_edit.png)
 
 ## Task 5: ##
 
+Modify code and deploy to blue slot
+
+Click on website to see differences
 
 ## Task 6: ##
+
+Review in app insights & promote if desired
