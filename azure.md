@@ -11,4 +11,6 @@ Please review the course material and videos before returning to this repository
 1. [LAB 2 - Learn Git Interactively on the tryGit site](https://try.github.io/levels/1/challenges/1)
 1. [LAB 3 - Continuous Integration](docs/Lab3/edX-DEV212x-Lab3.md)
 1. [LAB 4 - Release Management](docs/Lab4/edX-DEV212x-Lab4.md)
+1. [LAB 5 - Feedback and Monitoring](docs/Lab5/edX-DEV212x-Lab5.md)
+
 
