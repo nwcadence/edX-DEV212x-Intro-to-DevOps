@@ -403,9 +403,13 @@ In this task you will make a change to the code. We're going to change the look 
     ![Complete the PR](media/pr-complete.png "Complete the PR")
 
 1. Once the deployment to PROD-blue has completed, browse to the blue slot URL of your site (so if your `SiteName` variable was "myshuttlelinuxapp2" you would browse to http://myshuttlelinuxapp2-blue.azurewebsites.net/myshuttledev/). Log in and check that the Access Fare link is changed. You can also check that the production slot (the main site URL) remains unchanged. If it does look changed, remember that you might have been redirected to the blue slot by the traffic manager rule!
+    
+    ![The blue slot with the new version of the code](media/ab-test.png "The blue slot with the new version of the code")
 
-1. You can force traffic manager to route you to one or other slot. Start by browsing to the production slot (i.e. http://`SiteName`.azurewebsites.net/myshuttledev/.) Now add `?x-ms-routing-name=blue` to the URL. Log in and verify that you're seeing the change. To revert back to the production slot by changin the query string to `?x-ms-routing-name=production`. Again log in and verify that you're getting the unchanged code.
+1. You can force traffic manager to route you to one or other slot. Start by browsing to the production slot (i.e. http://`SiteName`.azurewebsites.net/myshuttledev/.) Now add `?x-ms-routing-name=blue` to the URL. Log in and verify that you're seeing the change.
 
+    ![After routing](media/after-routing.png "Forcing a routing")
 
+1. A cookie is set to "remember" which slot the user has been directed to. Once a user has been directed to one of the slots, their entire session will be on that slot. To revert back to the production slot, by change the query string to `?x-ms-routing-name=production` on the home page. Again log in and verify that you're getting the unchanged code.
 
 ## Task 5: ##
