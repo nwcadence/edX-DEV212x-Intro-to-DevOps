@@ -364,17 +364,43 @@ In this task you will make a change to the code. We're going to change the look 
 
 1. Log a User Story in VSTS to track the experiment. Log in to your VSTS account and browse to the Team Project that you've been working from. Click on Work to open the Work hub. Click on the Stories backlog and click the Backlog link to open it. Enter "Change casing of Access Fare link" and click Add.
 
-    ![Create a work item](media/create-work-item.png "Create work item")
+    ![Create a work item](media/create-workitem.png "Create work item")
 
 1. Assign the work item to yourself. Click on the work item title to open its form. Select your name in the Assigned To field.
 
     ![Assign the workitem](media/assign-workitem.png "Assign the workitem")
 
-1. Create a branch for the story in IntelliJ. 
+1. Create a branch for the story in IntelliJ. Open the MyShuttle2 project in IntelliJ. Press "Alt-9" or click View->Tool Windows->Version Control to open the version control pane. Click work items to see the work items assigned to you. Right click the work item that you created earlier and click "Create a branch..."
 
-1. Find the `src/main/webapp/dashboard.jsp` file. Change the link to all uppercase.
+    ![Open source control and click create a branch](media/open-sourcecontrol.png "Open source control and click create a branch")
 
-1. Commit and push. This will trigger a build which will in turn trigger a release. Wait until the release requests approval for the PROD-blue environment and approve it.
+1. Rename the branch to "casing-change" and click create. Note how IntelliJ notifies us that a new branch has been created and that the work item has been associated to the branch.
+
+    ![Create the branch](media/new-branch.png "Create the branch")
+
+1. Find the `src/main/webapp/dashboard.jsp` file. Change the link to all uppercase and save the file.
+
+    ![Update the code](media/update-code.png "Update the code")
+
+1. Press "Cntrl-K" or click VCS->Commit. Enter a commit message like "Changing case" and use the fly-out from the Commit button to select "Commit and Push". Click on the Push button when the Push dialog appears.
+
+    ![Commit the changes](media/commit.png "Commit the changes")
+
+1. Click on the Pull Requests tab in the Source Control pane. Click the + button to create a new Pull Reqest. The dialog should default to creating a Pull Request from the "casing-change" branch into the master branch. Click "Create Pull Request". IntelliJ notifies us that a PR has been created and it should be listed in the Pull Requests tab.
+
+    ![Create a PR](media/create-pr.png "Create a PR")
+
+1. Approve the PR. Open VSTS in a browser and navigate to the Code hub and click on Pull Requests. Locate the Pull Request that you created from IntelliJ and click on it. Note the linked work item.
+
+1. Click on Files to review the changes. A code reviewer could review the changes at this point.
+
+    ![Review PR changes](media/pr-changes.png "Review PR changes")
+
+1. Click on Approve to approve the changes. Then click on "Complete" button. Accept the defaults and click Complete. This will trigger a build which will in turn trigger a release. Wait until the release requests approval for the PROD-blue environment and approve it.
+
+    ![Approve the PR](media/pr-approve.png "Approve the PR")
+
+    ![Complete the PR](media/pr-complete.png "Complete the PR")
 
 1. Once the deployment to PROD-blue has completed, browse to the blue slot URL of your site (so if your `SiteName` variable was "myshuttlelinuxapp2" you would browse to http://myshuttlelinuxapp2-blue.azurewebsites.net/myshuttledev/). Log in and check that the Access Fare link is changed. You can also check that the production slot (the main site URL) remains unchanged. If it does look changed, remember that you might have been redirected to the blue slot by the traffic manager rule!
 
