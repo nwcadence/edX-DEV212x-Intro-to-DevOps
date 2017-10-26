@@ -35,7 +35,6 @@ At this point you're ready to deploy your container somewhere that customers can
 
 1. Review in AppInsights to see results
 
-
 ## Task 1: Explore the ARM Template in the Repository ##
 
 Before you deploy the application to Azure, we will take a look at the Azure Resource Manager (ARM) template to understand how which resources are going to be deployed and how they are connected.
@@ -347,8 +346,40 @@ At this point we have two container images: `web` which contains the web app and
 
 1. Once the deployment to `PROD-blue` has succeeded, you can click on the Tests tab to view the tests that have run. You can also browse to `http://SiteName-blue.azurewebsites.net` (where SiteName is the value you specified for the SiteName variable in the Release) to make sure that the site is up and running. Of course it will be - since the tests should have passed by this point in time!
 
-1. At this point, the site is running on the blue slot, but not yet in production. To deploy to production, we need to approve the post-deployment on the `PROD-blue` environment to swap the slots. But then the blue slot will be empty (since we're swapping it with the empty production slot)! Once the `PROD` environment has successfully deployed, click the `Deploy` button in the toolbar of the release summary and deploy (again) to `PROD-blue` (don't forget to approve the pre-deployment approval). At this point there should be a running site in both the blue slot as well as the production slot.
+1. At this point, the site is running on the blue slot, but not yet in production. To deploy to production, we need to approve the post-deployment on the `PROD-blue` environment to swap the slots. But then the blue slot will be empty (since we're swapping it with the empty production slot)! Once the `PROD` environment has successfully deployed, click the `Deploy` button in the toolbar of the release summary and deploy (again) to `PROD-blue`. VSTS warns us that the build is already deployed to the environment, but we're going to hit Deploy anyway!
+
+    ![Deploy to PROD-blue](media/deploy-to-prod-blue.png "Deploy to PROD-blue")
+
+Don't forget to approve the pre-deployment approval! At this point there should be a running site in both the blue slot as well as the production slot. 
+
+1. Verify this by browsing to the production URL of your site (so if your `SiteName` variable was "myshuttlelinuxapp2" you would browse to http://myshuttlelinuxapp2.azurewebsites.net/myshuttledev/). You can also browse to the blue slot by browsing to http://`SiteName`-blue.azurewebsites.net/myshuttledev/.
+
+    ![Both sites running](media/both-sites-running.png "Both sites running")
+
+> **Note**: You can log in by entering in `fred` for the username and `fredpassword` for the password.
 
 ## Task 4: ##
+
+In this task you will make a change to the code. We're going to change the look and feel of a link to see if more users click on it. This example is a little contrived, but the point is to show that we can create an experiment, quickly deploy it and since we have A/B testing configured, measure the effectiveness of the code change.
+
+1. Log a User Story in VSTS to track the experiment. Log in to your VSTS account and browse to the Team Project that you've been working from. Click on Work to open the Work hub. Click on the Stories backlog and click the Backlog link to open it. Enter "Change casing of Access Fare link" and click Add.
+
+    ![Create a work item](media/create-work-item.png "Create work item")
+
+1. Assign the work item to yourself. Click on the work item title to open its form. Select your name in the Assigned To field.
+
+    ![Assign the workitem](media/assign-workitem.png "Assign the workitem")
+
+1. Create a branch for the story in IntelliJ. 
+
+1. Find the `src/main/webapp/dashboard.jsp` file. Change the link to all uppercase.
+
+1. Commit and push. This will trigger a build which will in turn trigger a release. Wait until the release requests approval for the PROD-blue environment and approve it.
+
+1. Once the deployment to PROD-blue has completed, browse to the blue slot URL of your site (so if your `SiteName` variable was "myshuttlelinuxapp2" you would browse to http://myshuttlelinuxapp2-blue.azurewebsites.net/myshuttledev/). Log in and check that the Access Fare link is changed. You can also check that the production slot (the main site URL) remains unchanged. If it does look changed, remember that you might have been redirected to the blue slot by the traffic manager rule!
+
+1. You can force traffic manager to route you to one or other slot. Start by browsing to the production slot (i.e. http://`SiteName`.azurewebsites.net/myshuttledev/.) Now add `?x-ms-routing-name=blue` to the URL. Log in and verify that you're seeing the change. To revert back to the production slot by changin the query string to `?x-ms-routing-name=production`. Again log in and verify that you're getting the unchanged code.
+
+
 
 ## Task 5: ##
