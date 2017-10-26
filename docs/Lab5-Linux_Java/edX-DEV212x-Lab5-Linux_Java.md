@@ -364,22 +364,84 @@ In this task you will make a change to the code. We're going to change the look 
 
 1. Log a User Story in VSTS to track the experiment. Log in to your VSTS account and browse to the Team Project that you've been working from. Click on Work to open the Work hub. Click on the Stories backlog and click the Backlog link to open it. Enter "Change casing of Access Fare link" and click Add.
 
-    ![Create a work item](media/create-work-item.png "Create work item")
+    ![Create a work item](media/create-workitem.png "Create work item")
 
 1. Assign the work item to yourself. Click on the work item title to open its form. Select your name in the Assigned To field.
 
     ![Assign the workitem](media/assign-workitem.png "Assign the workitem")
 
-1. Create a branch for the story in IntelliJ. 
+1. Create a branch for the story in IntelliJ. Open the MyShuttle2 project in IntelliJ. Press "Alt-9" or click View->Tool Windows->Version Control to open the version control pane. Click work items to see the work items assigned to you. Right click the work item that you created earlier and click "Create a branch..."
 
-1. Find the `src/main/webapp/dashboard.jsp` file. Change the link to all uppercase.
+    ![Open source control and click create a branch](media/open-sourcecontrol.png "Open source control and click create a branch")
 
-1. Commit and push. This will trigger a build which will in turn trigger a release. Wait until the release requests approval for the PROD-blue environment and approve it.
+1. Rename the branch to "casing-change" and click create. Note how IntelliJ notifies us that a new branch has been created and that the work item has been associated to the branch.
+
+    ![Create the branch](media/new-branch.png "Create the branch")
+
+1. Find the `src/main/webapp/dashboard.jsp` file. Change the link to all uppercase and save the file.
+
+    ![Update the code](media/update-code.png "Update the code")
+
+1. Press "Cntrl-K" or click VCS->Commit. Enter a commit message like "Changing case" and use the fly-out from the Commit button to select "Commit and Push". Click on the Push button when the Push dialog appears.
+
+    ![Commit the changes](media/commit.png "Commit the changes")
+
+1. Click on the Pull Requests tab in the Source Control pane. Click the + button to create a new Pull Reqest. The dialog should default to creating a Pull Request from the "casing-change" branch into the master branch. Click "Create Pull Request". IntelliJ notifies us that a PR has been created and it should be listed in the Pull Requests tab.
+
+    ![Create a PR](media/create-pr.png "Create a PR")
+
+1. Approve the PR. Open VSTS in a browser and navigate to the Code hub and click on Pull Requests. Locate the Pull Request that you created from IntelliJ and click on it. Note the linked work item.
+
+1. Click on Files to review the changes. A code reviewer could review the changes at this point.
+
+    ![Review PR changes](media/pr-changes.png "Review PR changes")
+
+1. Click on Approve to approve the changes. Then click on "Complete" button. Accept the defaults and click Complete. This will trigger a build which will in turn trigger a release. Wait until the release requests approval for the PROD-blue environment and approve it.
+
+    ![Approve the PR](media/pr-approve.png "Approve the PR")
+
+    ![Complete the PR](media/pr-complete.png "Complete the PR")
 
 1. Once the deployment to PROD-blue has completed, browse to the blue slot URL of your site (so if your `SiteName` variable was "myshuttlelinuxapp2" you would browse to http://myshuttlelinuxapp2-blue.azurewebsites.net/myshuttledev/). Log in and check that the Access Fare link is changed. You can also check that the production slot (the main site URL) remains unchanged. If it does look changed, remember that you might have been redirected to the blue slot by the traffic manager rule!
+    
+    ![The blue slot with the new version of the code](media/ab-test.png "The blue slot with the new version of the code")
 
-1. You can force traffic manager to route you to one or other slot. Start by browsing to the production slot (i.e. http://`SiteName`.azurewebsites.net/myshuttledev/.) Now add `?x-ms-routing-name=blue` to the URL. Log in and verify that you're seeing the change. To revert back to the production slot by changin the query string to `?x-ms-routing-name=production`. Again log in and verify that you're getting the unchanged code.
+1. You can force traffic manager to route you to one or other slot. Start by browsing to the production slot (i.e. http://`SiteName`.azurewebsites.net/myshuttledev/.) Now add `?x-ms-routing-name=blue` to the URL. Log in and verify that you're seeing the change.
 
+    ![After routing](media/after-routing.png "Forcing a routing")
 
+1. A cookie is set to "remember" which slot the user has been directed to. Once a user has been directed to one of the slots, their entire session will be on that slot. To revert back to the production slot, by change the query string to `?x-ms-routing-name=production` on the home page. Again log in and verify that you're getting the unchanged code.
 
 ## Task 5: ##
+
+Now that we have two versions of the application (one on the blue slot and one on the production slot) and we have a percentage of our users hitting the blue slot (unobtrusively via Traffic Manager) we can monitor the metrics of both slots to determine if our change is better than the current version or not. Fortunately this is easy to do since we have configured Application Insights already!
+
+1. Click the "Access your fares" link several times on both the blue site and the production site. This will generate some traffic that we can analyze in Application Insights. For the purposes of this lab, click the link more on the blue site than on the production site.
+
+    > **Note**: In a real experiment, users would not be using the -blue URL since Traffic Manager would be routing them unobtrusively. You're just clicking on the blue URL just to simulate users generating traffic on the blue slot.
+
+1. Navigate to the Azure Portal and click on the resource group that was created in the release. Click on the Application Insights resource with "blue" in the name.
+
+    ![Click AppInsights for the blue slot](media/click-blueinsights.png "Click AppInsights for the blue slot")
+
+1. Make sure that you see some reqests in the Health chart. Then click the Analytics button to open App Insights Analytics.
+
+    ![Open AppInsights Analytics](media/click-analytics.png "Open AppInsights Analytics")
+
+1. When the user clicks the "Access your fares" link, they generate a request to home.jsp. By measuring how many requests there are for home.jsp, we can get a good indication if the new UPPERCASE link is generating more hits or less.
+
+> **Note**: This is a bit contrived, but the point is to show you how A/B testing can be accomplished. In real life the change would be more significant.
+
+1. Click the + button to open a new Tab. Enter the following query:
+
+    ```
+    requests
+    | where name contains "home.jsp"
+    | summarize count()
+    ```
+
+    ![Run an Analytics query](media/appinsights-analytics.png "Run an Analytics query")
+
+1. Repeat the process to see how many requests there were to the home.jsp page on the production slot by opening App Insights analytics from the production App Insights resource. You can now compare the numbers and determine if the experiment is a success or not.
+
+> **Note**: If the experiment is a success, you can approve the post-deployment approval on the release in VSTS to push the change to the Prod slot. If you determine the experiment failed, you will need to reject the post-deployment approval. You will also need to trigger the "blue-fail" environment manually to revert the Traffic Manager rule.
