@@ -11,7 +11,7 @@ in Visual Studio Team Services (VSTS) and a Continuous Integration build that bu
 unit tests and publishes a container image to a container registry whenever code is pushed to the master branch. Please refer to the
 [LAB 3](../Lab3/EdX212x-Lab3-linux.md) in order to see how the CI build was set up.
 
-In [LAB 4](../Lab4/EdX212x-Lab4-linux.md) the Release Management section built a continuous delivery pipeline triggering releases on successful builds.  The stages of deployment demonstrated gating, approvals, code promotion, and running the containers on the Azure Linux VM.
+In [LAB 4](../Lab4/EdX212x-Lab4-linux.md) the Release Management section built a continuous delivery pipeline triggering releases on successful builds - though there was only a single environment (the Azure Linux VM itself).
 
 At this point you're ready to deploy your container somewhere that customers can hit the site. Once deployed, you'll want to profile the application to understand you customer's needs as well as the effectiveness of the site. Application Insights can provides just this sort of information. Now you can deploy new versions of the application to a staging slot and divert a percentage of traffic to the slot. Then you can monitor the slot and the production site to determine if the new version is "better" than the current production version - where "better" may mean better performance, more clicks, better conversion rates or anything else that you may need to experiment with.
 
