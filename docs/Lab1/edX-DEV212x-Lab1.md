@@ -14,7 +14,6 @@ The written labs in this course depend on several free prerequisites. However, i
 ### Tasks Overview
 1. Create a Visual Studio Team Services (VSTS) account
 2. Create an Azure Free Trial account
-3. Download and install Git
 
 ## Task 1 - Create a Visual Studio Team Services (VSTS) Account ####
 > **Note**: If you already have a VSTS account, you can skip this step. However, you need to ensure that it is an account in which you are the account owner. In other words, if you create the account yourself, you can skip this step and just sign into your account. However, if some else created the account and added you to the account, then you will need to complete this step. Once you have signed into your existing account, then create a new Team Project as specified in [Task 3](#Ex4Task2).
@@ -67,20 +66,4 @@ The written labs in this course depend on several free prerequisites. However, i
 	If you'd like to watch a video, showing how to sign up for a free Azure trial, visit the [Sign up for Azure](https://channel9.msdn.com/Blogs/Windows-Azure/Sign-up-for-Microsoft-Azure) video on Channel9.
 
 	Alternatively, if you have an MSDN subscription, you can activate your free, monthly Azure credits (up to $150/month). Details can be found at the [Azure MSDN Benefits](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits/) site.
-
-## Task 3 - Download and install Git
-> **Note**: If you already have a Git client installed, this step is not required. However, if you do not have a Git command line, then you will need to translate the labs (and demo videos) into your graphical Git tool. If you choose, you can use Visual Studio Community on Windows as a graphical tool.  However, I personally recommend getting comfortable with Git from the command line.
-
-1. Download an OS specific Git client from [Git download site](https://git-scm.com/downloads).
-
-	![](media/git-download-site.png)
-
-1. When installing on Windows, you can feel free to keep the defaults of the installer **except** you will want to make sure that Git is in the path if you want to use Git command line in Command Prompt or PowerShell. Or, you can choose to just use Git Bash, which is Git's command window. 
-
-	![](media/add-git-path.png)
-    	
-## Optional - Visual Studio Community ####
-If you are on a Windows OS, and do not have Visual Studio 2017 Professional or Enterprise editions, then you can download and
-install [Visual Studio 2017 Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) for free. It is not required for any of the labs, however it will be used in some of the demos. In every case, alternate approaches (browser or git command line) will be demonstrated.
-
 
