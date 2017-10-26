@@ -13,15 +13,15 @@ In this task you will install a VSTS extension from the [VSTS Marketplace](https
 1. Open Chrome and browse to `http://<youraccount>.visualstudio.com` (where `youraccount` is the account you created in VSTS).
 1. Click on the shopping bag icon on the upper right and select "Browse Marketplace".
 
-    ![Navigate to the marketplace](media/docker-release/browse-marketplace.png "Navigate to the marketplace")
+    ![Navigate to the marketplace](media/browse-marketplace.png "Navigate to the marketplace")
 
 1. In the search toolbar, type "replacement" and press enter. You should see "Colin's ALM Corner Build & Release Tools" in the results.
 
-    ![Search for replacement](media/docker-release/search-replacement.png "Search for replacement")
+    ![Search for replacement](media/search-replacement.png "Search for replacement")
 
 1. Click on "Colin's ALM Corner Build & Release Tools". Then click on the Install button.
 
-    ![Install the extension](media/docker-release/install-extension.png "Install the extension")
+    ![Install the extension](media/install-extension.png "Install the extension")
 
 1. In the dialog that appears, ensure that your VSTS account is selected and click Continue. Once your permissions have been verified, click the Confirm button.
 
@@ -35,36 +35,36 @@ In this task you will create a Release Definition with a single environment call
 1. Click on the `jdev` team project to navigate to it.
 1. Under the "Build and Releases" hub, click on "Releases" and click the button in the page to create a new release definition.
 
-    ![Go to the Releases tab](media/docker-release/goto-releases.png "Go to the Releases tab")
+    ![Go to the Releases tab](media/goto-releases.png "Go to the Releases tab")
 
 1. In the template flyout (on the right side), select an empty process as the template for the release definition. 
 
-    ![Select empty process](media/docker-release/select-emptyprocess.png "Select empty process")
+    ![Select empty process](media/select-emptyprocess.png "Select empty process")
 
 1. Click on Environment1 to open the properties flyout. Change the name to "AzureVM".
 
-    ![Rename Environment1](media/docker-release/rename-env1.png "Rename Environment1")
+    ![Rename Environment1](media/rename-env1.png "Rename Environment1")
 
 1. In the "Artifacts" component of the release definition, click on the "Add artifact" button to add a build definition as an artifact source to the release definition. 
 
-    ![Add artifact](media/docker-release/add-artifact.png "Add artifact")
+    ![Add artifact](media/add-artifact.png "Add artifact")
 
 1. In the Artifacts flyout, choose the MyShuttle2 build definition as the artifact, keep the default version as latest and the default value of the source alias. Then press the "Add" button.
 
-    ![Add MyShuttle2 artifact](media/docker-release/add-myshuttle2artifact.png "Add MyShuttle2 artifact")
+    ![Add MyShuttle2 artifact](media/add-myshuttle2artifact.png "Add MyShuttle2 artifact")
 
 1. Click in the name of the release definition and rename it. 
 
-    ![Rename release definition](media/docker-release/edit-definitionname.png "Rename release definition")
+    ![Rename release definition](media/edit-definitionname.png "Rename release definition")
 
 1. Click on the trigger icon on the Build Artifact. In the property flyout, ensure that the Continuous Deployment trigger is enabled. Set the branch filter to master so that only builds from the master branch trigger the deployment automatically.
 
-    ![Continuous Deployment trigger](media/docker-release/release-trigger.png "Continuous Deployment trigger")
+    ![Continuous Deployment trigger](media/release-trigger.png "Continuous Deployment trigger")
 
 1. Click the link labelled "1 phase(s), 0 task(s)" in the AzureVM environment card to open the phases/tasks editor for the environment.
 1. Click on the "Agent Phase" row and change the Queue to "default" so that your private agent executes the release tasks for this phase of the release.
 
-    ![Edit the phase settings](media/docker-release/edit-phase-settings.png "Edit the phase settings")
+    ![Edit the phase settings](media/edit-phase-settings.png "Edit the phase settings")
 
 1. Click the "+" icon on the phase to add a new task. Type "replace" in the search box. Add a "Replace Tokens" task.
 1. Set the following properties for the Replace Tokens task:
@@ -74,7 +74,7 @@ In this task you will create a Release Definition with a single environment call
     | Source Path | `$(System.DefaultWorkingDirectory)/MyShuttle2/drop` | The path in which to search for tokenized files |
     | Target File Pattern | `*.release.*` | The file pattern to use to find tokenized files in the Source Path |
 
-    ![Replace Tokens task](media/docker-release/replace-tokens.png "Replace Tokens task")
+    ![Replace Tokens task](media/replace-tokens.png "Replace Tokens task")
 
     > **Note**: There are 2 tokenized files that the release will take advantage of, both of which live in the root of the MyShuttle2 repo. The build process published these files so that they are available as outputs of the build, ready for use in the Release process. `docker-compose.release.yml` contains tokens for the host port, container image names and tags.  `testng.release.xml` contains tokens for the baseUrl to test. These tokenized files make it possible to "Build Once, Deploy Many Times" since they separate the environment configuration and the binaries from the build. The Replace Tokens task inject release variables (which you will define shortly) into the tokens in the files.
 
@@ -90,7 +90,7 @@ In this task you will create a Release Definition with a single environment call
     | Action | Run service images | Sets the action to perform (in this case an `up` command) |
     | Build Images | Unchecked | Use the images that were built in the build process |
 
-    ![Run Services task](media/docker-release/run-services.png "Run Services task")
+    ![Run Services task](media/run-services.png "Run Services task")
 
     > **Note**: This task will start the 2 container apps in the docker engine of the host VM.
 
@@ -103,7 +103,7 @@ In this task you will create a Release Definition with a single environment call
     | Arguments | `-cp myshuttledev-tests.jar:test-jars/* org.testng.TestNG ../testng.release.xml` | Arguments for the java command to invoke the integration tests |
     | Advanced/Working folder | `$(System.DefaultWorkingDirectory)/MyShuttle2/drop/target` | Run the command in the correct folder |
 
-    ![Run Java task](media/docker-release/run-java.png "Run Java task")
+    ![Run Java task](media/run-java.png "Run Java task")
 
     > **Note**: This command invokes Java to run testNG tests. The run uses the `testng.release.xml` file which at this point in the release contains the correct `baseUrl` for the tests. If the tests fail, the release will fail.
 
@@ -115,13 +115,13 @@ In this task you will create a Release Definition with a single environment call
     | Test results files | `**/TEST-*.xml` | Invoke java |
     | Control Options/Continue on error | Checked | Uploads the results even if the tests from the previous step fail. |
 
-    ![Publish Test Results task](media/docker-release/publish-testresults.png "Publish Test Results task")
+    ![Publish Test Results task](media/publish-testresults.png "Publish Test Results task")
 
     > **Note**: This command grabs the JUnit test results file from the test run and publishes them to the release so that the test results are available in the Release summary.
 
 1. You should have 4 tasks in this order:
 
-    ![Tasks for the Release](media/docker-release/tasks-view.png "Tasks for the Release")
+    ![Tasks for the Release](media/tasks-view.png "Tasks for the Release")
 
 1. Click on the Variables tab. Enter the following variables and scopes:
 
@@ -133,29 +133,29 @@ In this task you will create a Release Definition with a single environment call
     | HostPort | 8081 | AzureVM | The port to expose the web app to on the host |
     | Tag | $(Build.BuildNumber) | Release | The tag to use for the container images - tied to the build number. |
 
-    ![Variables for the release](media/docker-release/release-vars.png "Variables for the release")
+    ![Variables for the release](media/release-vars.png "Variables for the release")
 
     > **Note**: You will need to use your azure container registry (e.g. `cdjavadev.azurecr.io`) in the image variables. Instead of using the `:latest` tag for the images, we explicitly use the build number, which was used to tag the images during the build. This allows us to "roll-forward" to previous tags for the images if we want to revert a release. The scope setting allows us to make variables that live at a release level (Release) or are environment-specific (like AzureVM). If you clone the environment to repeat this release in additional environments, you can just specify new values for the variables for those environments.
 
 1. Click the Save button in the toolbar to save the definition.
 1. Click the "+ Release" button and then click Create Release.
 
-    ![Create a new Release](media/docker-release/create-release.png "Create a new Release")
+    ![Create a new Release](media/create-release.png "Create a new Release")
 
 1. Click the queue button on the Create a new release dialog to start the release.
 
-    ![Click the release number](media/docker-release/click-release.png "Click the release number")
+    ![Click the release number](media/click-release.png "Click the release number")
 
 1. Click on Logs to view the logs from the release.
 
-    ![Click Logs](media/docker-release/click-logs.png "Click Logs")
+    ![Click Logs](media/click-logs.png "Click Logs")
 
 1. When the release completes, click on the Tests tab and then change the filter to see that the tests all succeeded.
 
-    ![View test results](media/docker-release/test-results.png "View test results")
+    ![View test results](media/test-results.png "View test results")
 
 1. In Chrome, browse to `http://localhost:8081/myshuttledev/` to see the site running.
 
-    ![The site is running](media/docker-release/site-running.png "The site is running")
+    ![The site is running](media/site-running.png "The site is running")
 
     > **Note**: You can log in by entering username `fred` and password `fredpassword`.
