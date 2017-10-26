@@ -1,4 +1,4 @@
-# EdX DEV212x Intro to DevOps - LAB 4 #
+# edX DEV212x Intro to DevOps - LAB 4, Release Management with Visual Studio Team Services #
 This is the Hands on Lab for module 4 of the Intro to DevOps course.
 
 > **NOTE:** VSTS is a rapidly evolving service, with releases coming every 3 weeks. Some of the images and instructions in this lab may change slightly so that they look different when you go through this lab. If you take a deep breath and think of the goal you're trying to achieve, you should be able to work out where to go even if the user interface does not exactly match the LAB.

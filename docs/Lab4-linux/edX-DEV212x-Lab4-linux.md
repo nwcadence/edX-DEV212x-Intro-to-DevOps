@@ -1,4 +1,5 @@
-## Release Management with VSTS
+# edX DEV212x Intro to DevOps - LAB 4 (Java/Linux), Release Management with Visual Studio Team Services #
+This is the Hands on Lab for module 4 of the Intro to DevOps course  - the Linux/Java track.
 
 In this exercise, you are going to create a Release Definition that will start the container images from the build lab. You will then create an Azure Container Service (ACS) and modify the Release to start containers in ACS.
 

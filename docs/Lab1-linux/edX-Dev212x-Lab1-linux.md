@@ -1,3 +1,21 @@
+# edX DEV212x Intro to DevOps - LAB 1 (Java/Linux), Signing up and configuring lab dependencies and prerequisites #
+This is the Hands on Lab for module 1 of the Introduction to DevOps course - the Linux/Java track.
+
+The objectives of the labs in this course are to walk through the creation of a DevOps / continuous delivery pipeline that includes infrastructure-as-code, configuration-as-code, as well as code deployment. Although the labs aren't required to successfully complete this course, I highly recommend it, as creating a pipeline really gives you a feel for the power of DevOps.
+
+In order to run a course on DevOps that includes labs, we needed to select a platform on which to build out the exercises. Although this course
+is technology stack agnostic, the Visual Studio Team Services (VSTS) and Azure platforms were chosen for the demos and labs. Additionally, Git was selected as the version control system due to its availability on all modern operating systems.
+
+Both VSTS and Azure are accessible from a web browser (any operating system) and provide a free tier that is used in this class.
+Besides a browser, you will need to be able to Remote Desktop to an Azure Virtual Machine (which you'll create) that you will use for these labs. The VM is an Ubuntu VM that comes preconfigured with docker, IntelliJ, Eclipse, Java and Maven.
+
+The written labs in this course depend on several free prerequisites. However, if you choose, you can use whatever infrastructure platform, release management pipeline and version control system that you like.  However, if you do so, you'll need to translate the labs into your own chosen tools.
+
+### Tasks Overview
+1. Create a Visual Studio Team Services (VSTS) account
+2. Create an Azure Free Trial account
+3. Create an Azure Linux VM for the labs
+
 ## Creating your Visual Studio Team Services account and Team project
 
 This exercise will walk you through the steps to creating your Visual
@@ -194,3 +212,9 @@ In this task you will import the MyShuttleCalc code from Github into VSTS. If yo
 Now you’re going to manage your backlog with Visual Studio Team
 Services. You can read more about account creation and more at
 [https://www.visualstudio.com/en-us/docs/setup-admin/team-services/connect-to-visual-studio-team-services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/connect-to-visual-studio-team-services)
+
+## Setting up an Azure Linux VM for the Labs
+
+The remainder of the Java/Linux labs require some software such as Docker, Java, Maven and IntelliJ. Instead of you having to install and configure all of these programs, we've created an Azure Resource Manager (ARM) template that spins up a VM and runs a script to install and configure everything for you.
+
+In a browser, navigate to https://github.com/nwcadence/java-dev-vsts and follow the instructions to deploy the VM. Once you've successfully remoted into the machine, you can return to the EdX course for the next module.

@@ -1,5 +1,5 @@
-# edX DEV212x Intro to DevOps - LAB 3, Continuous Integration with Visual Studio Team Services #
-This is the Hands on Lab for module 3 of the Intro to DevOps course.
+# edX DEV212x Intro to DevOps - LAB 3 (Java/Linux), Continuous Integration with Visual Studio Team Services #
+This is the Hands on Lab for module 3 of the Intro to DevOps course - the Linux/Java track.
 
 Once you have completed the videos and other course material for Module 3, you can continue with this lab.
 
