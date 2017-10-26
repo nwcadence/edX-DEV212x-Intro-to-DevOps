@@ -413,3 +413,35 @@ In this task you will make a change to the code. We're going to change the look 
 1. A cookie is set to "remember" which slot the user has been directed to. Once a user has been directed to one of the slots, their entire session will be on that slot. To revert back to the production slot, by change the query string to `?x-ms-routing-name=production` on the home page. Again log in and verify that you're getting the unchanged code.
 
 ## Task 5: ##
+
+Now that we have two versions of the application (one on the blue slot and one on the production slot) and we have a percentage of our users hitting the blue slot (unobtrusively via Traffic Manager) we can monitor the metrics of both slots to determine if our change is better than the current version or not. Fortunately this is easy to do since we have configured Application Insights already!
+
+1. Click the "Access your fares" link several times on both the blue site and the production site. This will generate some traffic that we can analyze in Application Insights. For the purposes of this lab, click the link more on the blue site than on the production site.
+
+    > **Note**: In a real experiment, users would not be using the -blue URL since Traffic Manager would be routing them unobtrusively. You're just clicking on the blue URL just to simulate users generating traffic on the blue slot.
+
+1. Navigate to the Azure Portal and click on the resource group that was created in the release. Click on the Application Insights resource with "blue" in the name.
+
+    ![Click AppInsights for the blue slot](media/click-blueinsights.png "Click AppInsights for the blue slot")
+
+1. Make sure that you see some reqests in the Health chart. Then click the Analytics button to open App Insights Analytics.
+
+    ![Open AppInsights Analytics](media/click-analytics.png "Open AppInsights Analytics")
+
+1. When the user clicks the "Access your fares" link, they generate a request to home.jsp. By measuring how many requests there are for home.jsp, we can get a good indication if the new UPPERCASE link is generating more hits or less.
+
+> **Note**: This is a bit contrived, but the point is to show you how A/B testing can be accomplished. In real life the change would be more significant.
+
+1. Click the + button to open a new Tab. Enter the following query:
+
+    ```
+    requests
+    | where name contains "home.jsp"
+    | summarize count()
+    ```
+
+    ![Run an Analytics query](media/appinsights-analytics.png "Run an Analytics query")
+
+1. Repeat the process to see how many requests there were to the home.jsp page on the production slot by opening App Insights analytics from the production App Insights resource. You can now compare the numbers and determine if the experiment is a success or not.
+
+> **Note**: If the experiment is a success, you can approve the post-deployment approval on the release in VSTS to push the change to the Prod slot. If you determine the experiment failed, you will need to reject the post-deployment approval. You will also need to trigger the "blue-fail" environment manually to revert the Traffic Manager rule.
