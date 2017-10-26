@@ -160,6 +160,8 @@ Deploy code to the blue slot by enabling "Deploy to slot" and providing a slot i
 
 Add Route Traffic task to divert traffic to the blue slot.
 
+If the Route Traffic Task does not appear in your search, please install this extension from the market place [](https://marketplace.visualstudio.com/items?itemName=colinsalmcorner.colinsalmcorner-buildtasks)
+
 ![](media/vsts_add_traff.png)
 
 Use variables defined in the release to configure the traffic manager.
