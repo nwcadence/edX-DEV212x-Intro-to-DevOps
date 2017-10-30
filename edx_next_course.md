@@ -314,10 +314,12 @@ Microsoft Azure: <a href="https://aka.ms/edx-dev212x-az01" title="" target="_bla
 
 
 `Outline > Module 1: Overview of DevOps > Overview of Hands-on Labs and Prerequisites > Lab Prerequisites and Tools - Windows/.NET `
-# TODO - Insert Lab 1 - Windows here # 
+ 
+ [LAB 1 - Setting up a Visual Studio Team Services Account](docs/Lab1-Win_.NET/edX-DEV212x-Lab1-Win_.NET.md)
 
 `Outline > Module 1: Overview of DevOps > Overview of Hands-on Labs and Prerequisites > Lab Prerequisites and Tools - Linux/Java `
-# TODO - Insert Lab 1 - Linux here # 
+
+[LAB 1 - Setting up a Visual Studio Team Services Account](docs/Lab1-Linux_Java/edX-DEV212x-Lab1-Linux_Java.md) 
 
 `Outline > Module 1: Overview of DevOps > Module Review > Module Review `
 
@@ -479,10 +481,10 @@ For more information about how small frequent releases can reduce the error rate
 
 Teaching Git is beyond the scope of this course, especially since any version control system can be used effectively in a DevOps continuous delivery pipeline. However, Git is an amazingly popular version control system, and there are a number of wonderful training resources online. The following are excellent sites to learn more about Git.
 
-# TODO - ry's git tutorial is temporarily down - validate it's back up. #
+# TODO - ry's git tutorial is temporarily down.  It's now available as a free kindle book by Ryan Hodson#
 
 1. Follow the instructions on the GitHub <a href="https://try.github.io/levels/1/challenges/1" title="" target="_blank">tryGit tutorial</a> to learn the basic commands in Git.
-1. Optionally, for more detailed lessons, visit <a href="http://rypress.com/tutorials/git/index" title="" target="_blank">Ry's Git Tutorial.</a> The first 4 lessons are the most valuable for this course.
+1. Optionally, for more detailed lessons, visit <a href="https://www.amazon.com/Rys-Git-Tutorial-Ryan-Hodson-ebook/dp/B00QFIA5OC" title="" target="_blank">Ry's Git Tutorial.</a> to view a free Kindle book.  The first 4 lessons are the most valuable for this course.
 1. Optionally, to visualize Git branching, visit the Learn Git Branching site. You can visit either the <a href="http://pcottle.github.io/learnGitBranching/" title="" target="_blank">tutorial,</a> or the <a href="http://pcottle.github.io/learnGitBranching/?NODEMO" title="" target="_blank">blank canvas.</a>
 
 *Note: All websites noted are hosted in an external site.*
@@ -654,11 +656,11 @@ Typically, a build pipeline is defined with the following components: 
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Lab Instructions - Windows/.NET`
 
-# TODO - Insert Lab 1 - Windows here # 
+ [LAB 1 - Setting up a Visual Studio Team Services Account](docs/Lab1-Win_.NET/edX-DEV212x-Lab1-Win_.NET.md)
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Lab Instructions - Linux/Java`
 
-# TODO - Insert Lab 1 - Linux here # 
+[LAB 1 - Setting up a Visual Studio Team Services Account](docs/Lab1-Linux_Java/edX-DEV212x-Lab1-Linux_Java.md) 
 
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Demo Videos: Migrating Code to VSTS from GitHub `
@@ -858,11 +860,11 @@ Application monitoring:
 
 `Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions - Windows/.NET`
 
-# TODO - Insert Lab 4 - Windows lab  and rename link above (maybe)#
+ [LAB 4 - Release Management](docs/Lab4-Win_.NET/edX-DEV212x-Lab4-Win_.NET.md)
 
 `Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions - Linux/Java`
 
-# TODO - Insert Lab 4 - Linux lab (and rename link above (maybe) #
+ [LAB 4 - Release Management](docs/Lab4-Linux_Java/edX-DEV212x-Lab4-Linux_Java.md)
 
 
 
