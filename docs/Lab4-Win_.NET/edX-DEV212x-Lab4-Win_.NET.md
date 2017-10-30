@@ -8,8 +8,7 @@ Once you have completed the videos and other course material for Module 4, you c
 
 In this lab you have an application called PartsUnlimited, committed to a Git repo
 in Visual Studio Team Services (VSTS) and a Continuous Integration build that builds the app and
-runs unit tests whenever code is pushed to the master branch. Please refer to the
-[LAB 3](../Lab3/EdX212x-Lab3.md) in order to see how the CI build was set up.
+runs unit tests whenever code is pushed to the master branch. Please refer to Lab 3 in order to see how the CI build was set up.
 Now you want to set up Release Management (a feature of Visual Studio Team Services)
 to be able continuously deploy the application to an Azure Web App. Azure Web Apps allow you to specify
 deployment slots - these can be used with Traffic Manager to perform A/B testing. Deployment slots

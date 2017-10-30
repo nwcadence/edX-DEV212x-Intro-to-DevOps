@@ -471,7 +471,6 @@ For more information about how small frequent releases can reduce the error rate
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/fG1AgtmA-tQ]**
 
-
 `Outline > Module 2: A Unified Process Between Dev and Ops > Hands-on Lab: Git > Learn Git `
 
 # Learn Git #
@@ -653,218 +652,21 @@ Typically, a build pipeline is defined with the following components: 
 **[Video link: https://youtu.be/yWhZOjdhbyo]**
 
 
-`Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Lab Instructions `
+`Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Lab Instructions - Windows/.NET`
 
-# Lab Instructions #
+# TODO - Insert Lab 1 - Windows here # 
 
-## LAB: Continuous Integration with Visual Studio Team Services ##
-In this lab we want to set up Visual Studio Team Services to be able to continuously integrate code into the master branch of code. This means that whenever code is committed and pushed to the master branch, we want to ensure that it integrates into our code correctly to get fast feedback. To do so, we are going to be setting up a Continuous Integration build (CI) that will allow us to compile and run unit tests on our code every time a commit is pushed to Visual Studio Team Services.
+`Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Lab Instructions - Linux/Java`
 
-### Pre-requisites: ###
-Make sure you have set up your VSTS account and installed Git based on the instruction of <a href="https://courses.edx.org/courses/course-v1:Microsoft+DEV212x+4T2016/courseware/66b9d235e13f4505b0ba3968859817ca/ebbbb0573349494d9f63b00e3bbcfc7c/2?activate_block_id=block-v1%3AMicrosoft%2BDEV212x%2B4T2016%2Btype%40vertical%2Bblock%408e05e9ff364d45a6b574fce98ed881a3" title="" target="_blank">Lab Prerequisites and Tools</a> in Module 1.
-
-### Tasks Overview: ###
-
-1. **Import Source Code into your VSTS Account:** You will connect your own Visual Studio Team Services account, download the PartsUnlimited source code, and then push it to your own Visual Studio Team Services account in order to use Build.
-1. **Create Continuous Integration Build:** You will create a build definition that will be triggered every time a commit is pushed to your repository in Visual Studio Team Services.
-1. **Test the CI Trigger in Visual Studio Team Services:** You will test the Continuous Integration build (CI) build we created by changing code in the Parts Unlimited project with Visual Studio Team Services.
-
-### Task 1. Import Source Code into your VSTS Account with Git Command Line ###
-
-Note: The task below only shows you how to import source code into your VSTS account with Git Command line. If you would like to use Visual Studio to import source code into your VSTS account, please refer to <a href="https://www.visualstudio.com/en-us/docs/git/gitquickstart#get-your-code" title="" target="_blank">Get Started with Git and Team Services</a> and <a href="https://www.visualstudio.com/en-us/docs/git/tutorial/creatingrepo#init" title="" target="_blank">Clone and init Git repositories.</a>
-
-
-1. Clone the repository to a local directory.
-
-	Create a parent **Working Directory **on your local file system. For instance, on Windows OS you can create the following directory:
-
-    	C:\Source\Repos
-
-	Open a command line window (one that supports Git such as Git Bash) and change to the directory you created above.
-
-	Clone the repository with the following command. In the example below, the clone will be copied into a directory named HOL. Feel free to use whatever directory name you like, or leave it blank to use the default directory name:
-
-    	git clone https://github.com/Microsoft/PartsUnlimited.git HOL
-
-	After a few seconds of downloading, all of the code should now be on your local machine.
-
-	Move into the directory that was just created. In a Windows OS (and assuming you used HOL as the directory name), you can use this command:
-
-    	cd HOL
-
-2. Remove the link to GitHub.
-
-    The Git repo you just downloaded currently has a remote called origin that points to the GitHub repo. Since we won't be using it any longer, we can delete the reference.
-
-    To delete the GitHub remote, use:
-
-
-    	git remote remove origin
-
-3. Find the URL to access the VSTS Git repo
-
-    First, we need to find the URL to empty Git repository in VSTS. If you remember your account name, and the Team Project name you created, the URL to the default Git repo is easily assembled:
-
-		https://<account>.visualstudio.com\_git\<project>
-
-    Alternatively, you can use a web browser to browse to your account, click into your project, and click the Code tab to get to your default Git repository:
-
-		https://<account>.visualstudio.com
-
-    Additionally, at the bottom of the web page, you will see the two commands that we will use to push the existing code to VSTS.
-
-	![](http://i.imgur.com/xyS6ZT5.png)
-
-1. Add the link to VSTS and push your local Git repo
-
-	In the local directory from Step 3, use the following command to add VSTS as the Git remote named origin. You can either type the URL you found in Step 4, or simply copy the first command from the VSTS web page.
-
-		git remote add origin https://<account>.visualstudio.com\_git\<project>
-
-	Now you can push the code, including history, to VSTS:
-
-		git push -u origin --all
-
-	If you get a dialog box that requires sign-in, enter your Microsoft account.
-
-	Congratulations, your code should now be in VSTS!
-
-### Task 2. Create Continuous Integration Build ###
-A continuous integration build will give us the ability check whether the code we checked in can compile and will successfully pass any automated tests that we have created against it.
-
-1. Go to your **account€™s homepage**:
-
-		https://<account>.visualstudio.com
-
-1. Click **Browse** and then select your team project and click **Navigate**.
-
-	![](http://i.imgur.com/Wx922fL.png)
-
-1. Once on the project€™s home page, click on the **Build** hub at the top of the page, then on **All Definitions**, and then on **New Definition**.
-
-	![](http://i.imgur.com/EIwcuHO.png)
-
-1. Select the **Empty** build definition, and then click **Next**.
-
-	![](http://i.imgur.com/zyDwaU0.png)
-
-	**Note**: As you can see, you can now do Universal Windows Apps & Xamarin Android/IOS Builds as well as Xcode builds.
-
-1. After clicking the **Next** button, select **HOL Team Project**, select **HOL** Repository, select **Master** as the default branch and check **Continuous Integration** then click **Create**.
-
-	![](http://i.imgur.com/kbxMzAQ.png)
-
-	**Note**: We may have multiple repos and branches, so we need to select the correct Repo and Branch before we can select which Solution to build.
-
-1. After clicking the **Create** button, On the **Build** tab click the **Add build step** in the Build pane.
-
-	![](http://i.imgur.com/LRByiQQ.png)
-
-1. In the **Task catalogue** dialog, select the **Utility** page and then add a **PowerShell** task.
-
-	![](http://i.imgur.com/8q8S71Q.png)
-
-1. Still in the **Task catalogue** dialog, select the **Test** page and add a **Publish Test Results** task.
-
-	![](http://i.imgur.com/67og9pL.png)
-
-1. Select the **Utility** page again and add a **Copy and Publish Build Artifacts** task and then click on **Close**.
-
-	![](http://i.imgur.com/hmT2qBS.png)
-
-1. On the **PowerShell Script** task, click on the blue **rename** pencil icon and change the name of the step to **dotnet restore, build, test and publish** and click **OK**.
-
-	![](http://i.imgur.com/6NdMac3.png)
-
-1. Select File Path for the Type property, enter "build.ps1" for the Script Path property and $(BuildConfiguration) $(build.stagingDirectory) for the Arguments property.
-
-	![](http://i.imgur.com/wH0mRwf.png)
-
-	**Note**: The build.ps1 script contains commands using the **dotnet.exe** executable used by .Net Core. The build script does the following: restore, build, test, publish, and produce an MSDeploy zip package.
-
-		[CmdletBinding()]
-		Param(
-			[Parameter(Mandatory=$True)] [string] $BuildConfiguration,
-			[Parameter(Mandatory=$True)] [string] $BuildStagingDirectory
-		)
-		$ErrorActionPreference = "Stop"
-		#### Restore and build projects
-		& dotnet restore
-		& dotnet build .\src\PartsUnlimitedWebsite --configuration $BuildConfiguration
-		& dotnet build .\test\PartsUnlimited.UnitTests --configuration $BuildConfiguration
-		#### Run tests
-		& dotnet test .\test\PartsUnlimited.UnitTests -xml testresults.xml
-		#### Publish
-		$publishDirectory = Join-Path $BuildStagingDirectory "Publish"
-		$outputDirectory = Join-Path $publishDirectory "PartsUnlimited"
-		& dotnet publish .\src\PartsUnlimitedWebsite --framework netcoreapp1.0 --output $outputDirectory --configuration $BuildConfiguration --no-build
-		#### Package to MSDeploy format
-
-1. On the **Publish Test Results** task, change the **Test Result Format** to **XUnit** and the **Test Results File** to ****/testresults.xml**.
-
-	![](http://i.imgur.com/z4AYvD9.png)
-
-1. On the **Copy Publish Artifact** task, change the **Copy Root** property to **$(build.stagingDirectory)**, The **Contents** property to `**\*.zip`, The **Artifact Name** property to **drop** and the **Artifact Type** to **Server**.
-
-	![](http://i.imgur.com/2dC1hyQ.png)
-
-1. Select the **Variables** page and a new variable that will be used by the build.ps1 PowerShell script; **BuildConfiguration** with a value of **release**.
-
-	![](http://i.imgur.com/3MILBcL.png)
-
-1. Click on the **Triggers** tab and verify that the **Continuous integration (CI)** option is selected to build the solution everytime a change is checked in. Also make sure the filter includes the appropriate branch (in this case **master** and **Batch Changes** checkbox is unchecked.
-
-	![](http://i.imgur.com/L04wuvq.png)
-
-	**Note**: To enable Continuous integration in your project, check the **Continuous integration (CI)** checkbox. You can select which branch you wish to monitor, as well.
-
-1. Click **Save** and give the build definition a name.
-
-![](http://i.imgur.com/26Bo8u4.png)
-
-### Task 3. Test the CI Trigger in Visual Studio Team Services ###
-
-We will now test the **Continuous Integration build (CI)** build we created in Task 2 by changing code in the Parts Unlimited project with Visual Studio Team Services.
-
-1. Select the **Code** hub and then select your your repo, **HOL**.
-
-	Navigate to **/src/PartsUnlimitedWebsite/Controllers** in the HOL project, then click on the elipsis to the right of **HomeController.cs** and click **Edit**.
-
-	![](http://i.imgur.com/TgtWO00.png)
-
-1. After clicking **Edit**, add in text (i.e. *This is a test of CI*) after the last *Using* statement. Once complete, click **Commit**.
-
-	![](http://i.imgur.com/PJ9zEdd.png)
-
-1. Click **Build** hub. This should have triggered the build we previously created.
-
-	![](http://i.imgur.com/zU81MFd.png)
-
-1. Click on the **Build Number**, and you should get the build in progress. Here you can also see the commands being logged to console and the current steps that the build is on. 
-
-	![](http://i.imgur.com/QOHrZzT.png)
-
-1. Click on the **Build Number** on the top left and you should get a build summary similar to this, which includes test results.
-
-	![](http://i.imgur.com/YIJi4g7.png)
-
-**Congratulations! You have completed this hands-on lab.**
-
-In this lab, you learned how to add an existing Git repo to a project in Visual Studio, create a Continuous Integration build definition to compile, test, and publish build artifacts, and the end-to-end workflow of committing code to master and automatically triggering a build.
+# TODO - Insert Lab 1 - Linux here # 
 
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Demo Videos: Migrating Code to VSTS from GitHub `
-
 # Demo Videos: Migrating Code to VSTS from GitHub #
 
-## Migrate Code to VSTS from GitHub using Git ##
+## Migrate Code to VSTS from GitHub ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/zO7ZIfFXurQ]**
-
-## Migrating Code to VSTS from GitHub using Visual Studio ##
-![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/MnAnKDFda4Y]**
-
+**[Video link: Replace with new video (TODO) **
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Demo Video: Continuous Integration `
 
@@ -925,10 +727,11 @@ For more information on Automated Testing and Continuous Integration, check out 
 
 # Module Overview #
 
+# TODO - Split Module 4 - Wait for Lei feedback at least until Monday at 10:00 AM #
+
 ## Module 4 Overview ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/gFAP9Fo0PSU]**
-
 
 `Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Configuration Management and Release Management > Configuration Management `
 
@@ -1017,6 +820,8 @@ Typically, a deployment pipeline is defined with the following components:
 
 `Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Monitoring and Learning > Application Performance Monitoring `
 
+# TODO - Based on decision with Module 5 - move this to Mod 5 #
+
 # Application Performance Monitoring #
 
 ### Application Performance Monitoring (APM) ###
@@ -1051,349 +856,14 @@ Application monitoring:
 **[Video link: https://youtu.be/rjOHyyifvAw]**
 
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions `
+`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions - Windows/.NET`
 
-# Lab Instructions #
+# TODO - Insert Lab 4 - Windows lab  and rename link above (maybe)#
 
-## (Optional) LAB 4 Release Management with Visual Studio Team Services ##
+`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions - Linux/Java`
 
-In this lab, you will set up <a href="https://www.visualstudio.com/en-us/docs/release/getting-started/understand-rm" title="" target="_blank">Release Management</a>, a feature of Visual Studio Team Services, to continuously deploy the application to an <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview" title="" target="_blank">Azure Web App.</a>
+# TODO - Insert Lab 4 - Linux lab (and rename link above (maybe) #
 
-Azure Web Apps allow you to specify <a href="https://www.visualstudio.com/en-us/docs/release/examples/azure/deployment-slots-webapps" title="" target="_blank">deployment slots</a>. In this lab, we will use the slots to isolate changes being introduced into the environment for testing purposes. Initially the app will be deployed to a dev deployment slot. The staging slot will require an approver before the app is deployed into it. Once another approval is done on the staging slot, the app will be deployed to the production site.
-
-### Pre-requisites: ###
-- Make sure you have set up your VSTS account and installed Git based on the instruction of <a href="https://courses.edx.org/courses/course-v1:Microsoft+DEV212x+4T2016/courseware/66b9d235e13f4505b0ba3968859817ca/ebbbb0573349494d9f63b00e3bbcfc7c/2?activate_block_id=block-v1%3AMicrosoft%2BDEV212x%2B4T2016%2Btype%40vertical%2Bblock%408e05e9ff364d45a6b574fce98ed881a3" title="" target="_blank">Lab Prerequisites and Tools</a> in Module 1.
-- Make sure you have completed <a href="https://courses.edx.org/courses/course-v1:Microsoft+DEV212x+4T2016/courseware/52436c6483e34f69b30b601e127f33aa/c12988a777714daeb34bc87de61eaa98/1?activate_block_id=block-v1%3AMicrosoft%2BDEV212x%2B4T2016%2Btype%40vertical%2Bblock%4071558d21b5024a46946196330a56d0c2" title="" target="_blank">the lab: Continuous Integration with Visual Studio Team Services</a> in Module 3.
-- An active Azure account to host the PartsUnlimited Website as a Web App
-
-**Note**: In order to use deployment slots, you'll need to configure the Web App to use Standard or Premium App Service Plan mode. You **cannot** create deployment slots for Basic or Free Azure Web Apps. To learn more about deployment slots, see <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/" title="" target="_blank">this article.</a>
-
-### Tasks Overview: ###
-1. **Modify the CI Build to include ARM Templates** The source code already defines the infrastructure required by the application in code (Infrastructure as Code). The code is json file based on the Azure Resource Manager template schema. You will use the template to deploy or update the infrastructure as part of the release.
-1. **Create a Service Endpoint in Visual Studio Team Services to an Azure Account.** In this step you'll download your Azure publish settings file and create Service Endpoint in Visual Studio Team Services for your Azure account. This will enable you to configure deployment of the PartsUnlimited Website to Azure as an Azure Web Application from Builds or Releases.
-1. **Create a Release Pipeline for the Parts Unlimited Website.** In this step, you will create a Release definition for the PartsUnlimited Website. You'll use the CI build output as the input artefact for the Release and then define how the release moves through `environments` with approvals in between.
-1. **Trigger a Release.** Once the Release Definition is set up, you will trigger a release and see the pipeline in action.
-
-### Task 1: Modify the CI Build to include the ARM Templates ###
-In order to deploy to Azure, you're going to specify the infrastructure that the PartsUnlimited Website requires. For example, the site requires an Azure SQL Database and an Azure Web App. Rather than create these by hand, you are going to use the Azure Resource Manager (ARM) templates that describe this infrastructure in a json file. This is good practice, since you're describing infrastructure as code.
-
-The task that will deploy the ARM template will create the resource group if it does not exist. If the resource group does exist, then the template is used to update the existing resources.
-
-**Note:** The infrastructure described in the ARM templates for this HOL will create resources that are not free. It creates an Azure Web App with 3 deployment slots. Deployment slots are only available on Standard or Premium App Service Plans. They are **not** available on Free or Basic plans. Once you've completed this lab, you probably want to delete the resource group in order to minimize charges to your Azure account.
-
-**Step 1.** Log into your VSTS account and click on the BUILD hub.   
-**Step 2.** Click the HOL Build that you configured in the Continuous Integration HOL, and click "Edit".   
-**Step 3.** Click "+ Add build step..." and add a new "Publish Build Artifacts". Configure it as follows:   
-
-![](http://i.imgur.com/zJOpiae.png)
-
-- For `Path to Publish`, click the "..." button and browse to the env/Templates folder
-
-- For `Artifact Name`, enter "ARMTemplates"
-
-- For `Artifact Type`, select "Server"
-
-**Step 4.** Save the updated build definition and queue a new build by clicking the "Queue new build" button. Accept the defaults and click OK.
-
-   **Note:** The build process may take a while, but there is no need to await its completion before proceeding. Come back and do the last step after task 3.
-
-**Step 5.** When the build has completed, verify that there are 2 folders: drop and ARMTemplates.
-
-![](http://i.imgur.com/fEv1lGI.png)
-
-### Task 2: Create a Service Link from Visual Studio Team Services to an Azure Account ###
-
-In order to interact with Azure, you'll need to create a Service Endpoint in VSTS. This Endpoint includes the authentication information required to deploy to Azure.
-
-**Note:** Deploying <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/" title="" target="_blank">ARM Templates</a> to Azure from Release Management requires an organizational account or a <a href="http://blogs.msdn.com/b/visualstudioalm/archive/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-build-release-management.aspx" title="" target="_blank">Service Principal</a>. MSA Accounts and certificate-based connections are not supported. For this HOL, you will use an organizational account, but you can create a Service Principal if you wish to.
-
-**Step 1.** Create an organizational account in Azure  1. Create a user in the Azure Active Directory from the old Azure portal (<a href="https://manage.windowsazure.com/" title="" target="_blank">https://manage.windowsazure.com</a>). If you do not have a custom domain, then use the `onmicrosoft.com` domain (the default domain). The user should be something like `testuser@myazure.onmicrosoft.com`     2. After adding the account, the following two things need to be done to use the account during a VSTS release: * Add the Active Directory account to the co-administrators in the subscription. Go to the Settings hub (click on the Gear icon in the left-hand main menu) and then click on administrators and add the account as a co-admin. * Login to the portal with this Active Directory account (e.g. `testuser@myazure.onmicrosoft.com`, and change the password. Initially a temporary password is created and that needs to be changed at the first login.
-
-**Step 2.** Create an Azure Service Endpoint in Visual Studio Team Services 1. Log in to your VSTS account. 2. Open the project administration page by clicking the gear icon in the upper right.
-
-	![](http://i.imgur.com/Whq55cX.png)
-
-1. Click on the Services tab
-
-	![](http://i.imgur.com/ab9Wl9Q.png)
-
-1. Click on "New Service Endpoint" and select Azure Resource Manager from the list
-
-	![](http://i.imgur.com/p7WJNWa.png)
-
-1. Fill out the form below to create a <a href="http://blog.jstroheker.com/2016/10/11/SPNAzure/" title="" target="_blank">Service Principal.</a> Click on "Verify connection" button to check that all details were filed in correctly and then click on "OK" button.
-
-	![](http://i.imgur.com/ROsxrJd.png)
-
-1. You should see a new Service Endpoint. You can close the project administration page.
-
-	![](http://i.imgur.com/WW6IDj1.png)
-
-### Task 3: Create a Release Definition ###
-Now that you have an Azure Service Endpoint to deploy to, and a package to deploy (the output from your build), you can create a Release Definition. The Release Definition defines how your application moves through various Environments, including Tasks to update infrastructure, deploy your application, run scripts and run tests. You can also configure incoming (pre) or outgoing (post) approvals for each Environment.
-
-An Environment is simply a logical grouping of tasks - it may or may not correspond to a set of machines. For this Release Definition, you will create three environments: Dev, Staging and Production.
-
-The infrastructure required for all three environments is described in an ARM Template. The ARM Template will be invoked during the deployment in the Dev Environment before deploying the website to Dev. It will not be necessary to run any infrastructure tasks during Staging or Production deployments in this case.
-
-**Step 1.** Create a Release Definition to Deploy Infrastructure and Deploy to Dev.
-
-1. In VSTS, click on Releases. Then click on the "+ New definition" button to create a new definition. This will launch a wizard prompting you to select a deployment template. Click on "Empty" to start with an empty release and click "Next". For this lab you can simply use the defaults on the next page of the wizard and click "Create". 
-
-	![](http://i.imgur.com/3zfGWsS.png)
-
-1. The template has created a single Environment (called Environment 1).
-1. Enter "PartsUnlimited" into the name field at the top to name this Release Definition.
-1. Before completing the "Azure Web App Deployment" task, you'll need to configure the source package. Click on the "Artifacts" link.
-
-	![](http://i.imgur.com/RnaV9Wr.png)
-
-1. If build definition did not get linked automatically then click on "Link to an artifact source" link, otherwise check that it has the correct settings.
-
-	![](http://i.imgur.com/okHVVQ8.png)
-
-1. You'll now link this Release Definition to the CI build. Select the Project and Build from the drop downs and click "Link".
-
-	![](http://i.imgur.com/9969EQM.png)
-
-	**Note**: It is possible to Link other package sources, but you only need the CI build for this Release.
-
-1. Click on the Environments link to go back to the Environments page.
-1. Click the name label "Environment 1" and change the name to "Dev".
-
-	![](http://i.imgur.com/LCrxpbm.png)
-
-1. Click on the "+ Add tasks" button to add a task for this environment. In the "Deploy" group, click the "Add" button next to "Azure Resource Group Deployment" to add the task. Close the "Task catalogue" dialog.
-
-	![](http://i.imgur.com/3vTcNaj.png)
-
-1. Click on the "Azure Resource Group Deployment" task. Configure it as follows:
-
-	- `Azure Connection Type`: Azure Resource Manager
-	- `Azure RM Subscription`: select the Azure subscription endpoint that you created in Task 2
-	- `Action`: select "Create or Update Resource Group"
-	- `Resource Group`: enter $(`ResourceGroupName`) into the box, you will create a variable named this shortly.
-	- `Location`: select an Azure location
-	- `Template`: click the "..." button and browse to the FullEnvironmentSetupMerged.json file in the ARMTemplates folder.
-
-![](http://i.imgur.com/mJ5U5NY.png)
-
-- `Template Parameters`: click the "..." button and browse to the FullEnvironmentSetupMerged.param.json file in the ARMTemplates folder.
-
-![](http://i.imgur.com/BdEur7o.png)
-
-- `Override Template Parameters`: Enter the following in a single line (shown split here for convenience):
-
--WebsiteName $(WebsiteName) -PartsUnlimitedServerName $(ServerName) -PartsUnlimitedHostingPlanName $(HostingPlan) -CdnStorageAccountName $(StorageAccountName) -CdnStorageContainerName $(ContainerName) -CdnStorageAccountNameForDev $(StorageAccountName)-dev -CdnStorageContainerNameForDev $(ContainerName)-dev -CdnStorageAccountNameForStaging $(StorageAccountName)-stage -CdnStorageContainerNameForStaging $(ContainerName)-stage -PartsUnlimitedServerAdminLoginPassword (ConvertTo-SecureString -String '$(AdminPassword)' -AsPlainText -Force) -PartsUnlimitedServerAdminLoginPasswordForTest (ConvertTo-SecureString -String '$(AdminTestPassword)' -AsPlainText -Force)
-
-You will shortly define the values for each parameter, like $(`ServerName`), in the Environment variables.
-
-**Note:** If you open the FullEnvironmentSetupMerged.param.json file, you will see empty placeholders for these parameters. You could hard code values in the file instead of specifying them as "overrides". Either way is valid. If you do specify values in the params file, remember that in order to change values, you would have to edit the file, commit and create a new build in order for the Release to have access the new values.
-
-	- Make sure the `Output -> Resource Group` parameter is empty. It is not required for this release.
-
-1. Click on the ellipsis (...) button next to the Environment and select "Configure variables..."
-
-	![](http://i.imgur.com/WQG1XOz.png)
-
-1. Create the following variables, adding values too.
-
-	- **WebsiteName** - Name of the website in Azure
-	- **ServerName** - Prefix for the name of the database servers. Will have `-dev` or `-stage` added for dev/staging
-	- **HostingPlan** - Name of the hosting plan for the website
-	- **StorageAccountName** - Storage account name prefix. Will have `-dev` or `-stage` added for dev/staging
-	- **ContainerName** - Container name prefix. Will have `-dev` or `-stage` added for dev/staging
-	- **AdminPassword** - Admin password for production database server
-	- **AdminTestPassword** - Admin password for dev and staging database servers
-	- **ResourceGroupName** - Name of the Resource Group.
-
-	![](http://i.imgur.com/7sHGFfu.png)
-
-	**Note**: Use unique values for your variables by adding something custom at the end like your initials. Example for WebsiteName : pudncorejstr
-
-	**Note**: You can hide passwords and other sensitive fields by clicking the padlock icon to the right of the value text box.
-
-1. Save the definition.
-
-	**Step 2.** Test the ARM Template Deployment
-
-	Before moving on, it is a good idea to test the template so far.
-
-1. Click on "+ Release" in the toolbar and select "Create Release" to start a new release.
-
-	![](http://i.imgur.com/OiQjeAU.png)
-
-1. Select the latest build from the drop-down, and then select "Dev" as the target environment. Click "Create" to start the release.
-
-	![](http://i.imgur.com/Rnwf7z5.png)
-
-1. Click the "Release-x" link to open the release.
-
-	![](http://i.imgur.com/i2dZRK0.png)
-
-1. Click on the Logs link to open and monitor the deployment logs.
-1. You should see a successful release after a few minutes.
-
-	![](http://i.imgur.com/fqsdChU.png)
-
-1. If you log into the Azure Portal, you will see the Resource Group has been created.
-
-	![](http://i.imgur.com/g1pEPpt.png)
-
-**Step 3.** Add Web Deployment Tasks to Deploy the Web App
-
-	Now that the infrastructure deployment is configured, you can add a task to deploy the web app to Dev.
-
-1. Click on the Dev environment in the Release Definition. Then click "+ Add tasks".
-1. Select the "Deploy" group in the left and click the add button next to "AzureRM Web App Deployment" to add the task. Close the task selector dialog.
-
-	![](http://i.imgur.com/acXEIA3.png)
-
-1. Click on the "AzureRM Web App Deployment" Task.
-1. Select the Azure Service Endpoint you created earlier in the AzureRM Subscription drop down.
-1. For Web App Name, enter the $(`WebsiteName`) to use a variable. You defined this variable earlier when deploying the ARM Template. You will shortly "promote" it to a Release variable so that it can be used in all Environments in the Release.
-1. Check the Deploy to Slot check box
-1. Enter $(`ResourceGroupName`) into the Resource Group Box.
-1. Enter "dev" for the Slot. This will deploy the site to the "dev" deployment slot. This allows you to deploy the site to an Azure deployment slot without affecting the Production site.
-1. Tick "Take App Offline". This stops the website for deployment period and takes it back online afterwards. This is required because sites receive requests all the time causing files to lock down (i.e. making them unmodifiable).
-1. Click the ellipsis (...) button, next to the Package box, to set the Web Deploy Package location. Browse to the PartsUnlimitedWebsite.zip file and click OK.
-
-	![](http://i.imgur.com/O1kdS6S.png)
-
-1. Clear the "Additional Arguments" parameter. The ARM template you deployed has already configured all the slot-specific app settings and connection strings.
-1. The Task should look like this:
-
-	![](http://i.imgur.com/uSy639q.png)
-
-**Note**: It is a good practice to run smoke tests to validate the website after deployment, or to run load tests. The code-base you are using does not have any such tests defined. You can also run quick cloud-performance tests to validate that the site is up and running. For more information on quick load tests, see <a href="https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/Cloud-Loading-Testing-in-Visual-Studio-Team-Service" title="" target="_blank">this video</a> from around the 6 minute mark.
-
-1. Promote the WebSite Environment variables to a Release Variables
-
-	- Click on the "Dev" environment, click the ellipsis (...) button select "Configure Variables".
-	- Make a note of the `WebsiteName` and `ResourceGroupName` variables' values and delete them from this list. Click OK.
-	- Click on "Variables" to open the Release variables. These are "global" variables that any Environment can use.
-	- Enter "WebsiteName" for the name and enter the value for the Website in Azure. Enter "ResourceGroupName" for the name and enter the value for the Resource group in Azure.
-
-	![](http://i.imgur.com/RysQM8D.png)
-
-1. Click Save to save the Release Definition.
-
-**Step 4**. Test the Dev Environment
-You will shortly clone the Dev Environment into both Staging and Prod environments. However, before you do that it's a good idea to test that the Dev Environment is correctly configured by creating a new Release.
-
-1. Click on the "+ Release" button and select Create Release.
-
-	![](http://i.imgur.com/7NT8FRB.png)
-
-1. You can enter a Release Description if you want to.
-1. Select the latest build from the HOL Build drop down and click on "Create".
-1. Click the Release link to open the Release.
-
-	![](http://i.imgur.com/uSe4IVv.png)
-
-1. Click on the Logs link to open the deployment logs.
-1. Once the deployment completes, you can check that the site was in fact deployed successfully by navigating to the site url.
-
-	Since you deployed to the dev slot, you will need to navigate to `http://{siteName}-dev.azurewebsites.net` where siteName is the name of your Web App in Azure.
-
-	![](http://i.imgur.com/Fla1PBS.png)
-
-	By default you will only receive email notifications on failed release. This can be changed in settings for each environment. Click the ellipsis (...) on the Dev Environment card and select "Assign approvers..". Navigate to "General tab" and set the desired behavior.
-
-	**Step 5**. Clone the Dev environment to Staging and Production
-
-	Now that you have verified that the Dev Environment is configured correctly, you can clone it to Staging and Production.
-
-1. Click on the PartsUnlimited link and then the Edit link to open the Release Definition.
-
-**Note**: It is possible to change the definition for a Release without changing the Release Definition (i.e. the Release is an instance of the Release Definition that you can edit). You want to make sure that you are editing the Release Definition, not a Release.
-
-1. Click the ellipsis (...) on the Dev Environment card and select "Clone environment".
-
-	![](http://i.imgur.com/DMb5Nl4.png)
-
-1. In the Dev Environment, you did not define any approvers. For Staging, however, you should configure approvers. In "Pre-deployment approval" section choose people who will approve deployments to staging environment and click "Create".
-
-	![](http://i.imgur.com/2uoWxGy.png)
-
-1. A new Environment is created. Enter "Staging" for the name.
-1. Delete the "Azure Resource Group Deployment" task. This is not required in this Environment since the ARM template deployed the infrastructure for all 3 environments.
-1. Click the ellipsis (...) on the Staging Environment card and select "Configure variables".
-1. Delete all the variables. These are used by the "Azure Resource Group Deployment" task which you just deleted, so they are not necessary in this Environment.
-1. On the Azure Web App Deployment task, set the Slot to `staging`.
-
-![](http://i.imgur.com/x68N2HK.png)
-
-	**Note:** If you had environment-specific variables, you would be able to set Staging-specific values. It is not necessary in this case.
-
-1. When we cloned dev to staging we set one person for staging's pre-approvals. We can adjust it even further by clicking ellipsis (...) on the Staging Environment card and select "Assign approvers...". For this HOL, you can be both incoming and the outgoing approver.
-
-![](http://i.imgur.com/DmFjXQ8.png)
-
-1. In this case, you want to pause the deployment coming in. This ensures that if someone is testing in the Staging environment, they don't suddenly get a new build unexpectedly.
-1. Configure approvers for the Staging environment.
-
-![](http://i.imgur.com/AJe5olm.png)
-
-	**Pre-deployment approvers** must approve a deployment coming into the environment. The deployment will stop and wait before executing any tasks in the environment until approval is granted.
-	**Post-deployment approvers** approve deployments so that the next Environment can begin. They act as sign-off for the current environment.
-	**Approvers** can be individuals or groups.
-
-12. Clone the Staging environment to Production.
-
-	- Untick "Deploy to Slot" (i.e. the site will be deployed to the production slot).
-	- Update the approvers - again, you can be both approvers.
-
-13. Save the Release Definition.
-
-	**Step 6.** Configure Continuous Deployment for this Release Definition
-
-1. Click on the Triggers link of the Release Definition.
-2. For "Release trigger" pick "Continuous Deployment" and set trigger to the build definition created before.
-
-	Selecting the build as the trigger means that any time the artifact build completes, a new release will automatically start using the latest build.
-
-3. Set "Environment triggers" to the following settings:
-
-	- Deployment to "Dev" environment should be triggered after release is created.
-	- Deployment to "Staging" can be triggered on successful deployment to "Dev".
-	- Deployment to "Production" can be triggered on successful deployment to "Staging".
-
-	![](http://i.imgur.com/WwOUP2u.png)
-
-**Note:** Since the incoming build for this release is a CI build, you probably don't want to deploy the build all the way to Production. Setting the Release to stop at Dev means that you will need to create a new Release with Production as the target environment if you want to deploy to Production. This is of course configurable according to your own preference.
-
-**Task 5:** Create a Release
-
-Now that you have configured the Release Pipeline, you are ready to trigger a complete release.
-
-1. Click on "+ Release" to create a new Release.
-2. Select the latest build, click Create.
-
-	![](http://i.imgur.com/87YOlw9.png)
-
-	**Note:** You can adjust whether to deploy this release to a particular environment.
-
-3. Once the Dev stage has completed deployment, you will see a notification that an approval is pending (you will also have received an email notification if you ticked "Send an email notification to the approver whom the approval is pending on" option in settings for this environment). Check the dev slot of the PartsUnlimited site in Azure to ensure that the Dev environment is good, and then click Approve.
-
-	![](http://i.imgur.com/bBI8KVY.png)
-
-4. You can also see pending approvals in the overview pane:
-
-	![](http://i.imgur.com/ktf6smh.png)
-
-5. Optionally enter a comment and click the Approve button.
-6. This will trigger the release into the Staging environment.
-
-	**Note:** You can reassign the approval if required.
-
-7. Once the Staging deployment has completed, you will need to approve that staging is OK.
-8. This will then trigger the pre-approval for Production. Once you've approved that, deployment into the Production environment will begin.
-9. To see all your releases and where they are in their respective pipelines, click on All Releases and then click the Overview link.
-
-![](http://i.imgur.com/u4o3saF.png)
-
-**Congratulations! You have completed this hands-on lab!**
 
 
 `Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Demos `
@@ -1404,10 +874,11 @@ Now that you have configured the Release Pipeline, you are ready to trigger a co
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/0w-qHwAjYm0]**
 
+## TODO - This might move to Mod 5 ##
+
 ## Application Insights as an Application Performance Monitoring Tool ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/xUsiIzF6Oe4]**
-
 
 `Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Module Review > Module Review `
 
@@ -1461,6 +932,9 @@ For more information on Release Management, Configuration Management, and Applic
 
 
 `Outline > Final Exam > Post-course Survey > Post-course survey `
+
+# TODO - Add Module 5 #
+
 
 # Post-course survey #
 
