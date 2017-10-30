@@ -36,6 +36,3 @@ Please remember the honor code this course is based on. Checking the boxes below
 [x] I completed Assignment Part One.
 [x] I submitted Assignment Part Two in the discussion forum. 
 [x] I submitted Assignment Part Three in the discussion forum. 
-
-
-

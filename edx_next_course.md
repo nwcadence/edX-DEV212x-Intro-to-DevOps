@@ -313,73 +313,11 @@ Visual Studio Team Services: <a href="https://aka.ms/edx-dev212x-vsts" title="" 
 Microsoft Azure: <a href="https://aka.ms/edx-dev212x-az01" title="" target="_blank">https://aka.ms/edx-dev212x-az01</a>
 
 
-`Outline > Module 1: Overview of DevOps > Overview of Hands-on Labs and Prerequisites > Lab Prerequisites and Tools `
+`Outline > Module 1: Overview of DevOps > Overview of Hands-on Labs and Prerequisites > Lab Prerequisites and Tools - Windows/.NET `
+# TODO - Insert Lab 1 - Windows here # 
 
-For demo and labs purpose, we'll use Visual Studio Team Services (VSTS), the Azure platform, and Git in the course to illustrate the key concepts and practices of DevOps.  Here are steps to sign up and configure lab dependencies and prerequisites:
-
-## Tasks Overview ##
-1. Create a Visual Studio Team Services (VSTS) account
-1. Create an Azure Free Trial account
-1. Download and install Git
-
-## Task 1 - Create a Visual Studio Team Services (VSTS) Account ##
-1. Sign into <a href="https://aka.ms/edx-dev212x-vs" title="" target="_blank">Visual Studio.</a>
-
-Enter your Microsoft Account credentials.
-
-![](http://i.imgur.com/rVshR4n.png)
-
-1. **Note**: If you do not have a Microsoft Account, then you will need to create one by clicking "Sign up now". Once you have created an account, you can sign in using that account. 
-
-![](http://i.imgur.com/0JCFYcj.png)
-
-![](http://i.imgur.com/sMNGN2z.png)
-
-1. Once you have signed in to your Microsoft account (or created a new one), you should see a panel to create a new Visual Studio Team Services account. Click on the "Create new account" button.
-
-![](http://i.imgur.com/XjGpV63.png)
-
-1. In the "Create your account" panel, enter the following information:
-
-- A unique Visual Studio Team Services account name
-- Git as the version control for the team project
-- A project name, such as "PartsUnlimited" or "Intro-to-DevOps"
-- The Agile, Scrum, or CMMI template for organizing work in the project
-
-	**Note**: The project template defines what work item types and workflows are available. The Hands-on-labs can be completed with any of the three templates, but Agile or Scrum are more commonly used in DevOps organizations.
-
-Once you have filled out the information, press the continue button to create the Visual Studio Team Services account.
-
-![](http://i.imgur.com/Q9zZ630.png)
-
-1. Once the project is created, you will be redirected to the Team Project dashboard. You can close the Congratulations dialog once you have read it.
-
-![](http://i.imgur.com/ifOaq82.png)
-*The Team Project Dashboard*
-
-## Task 2 - Create a Free Azure Trial account ##
-**Note**: If you already have an Azure account, you can skip this step. However, you need to ensure that it is an account in which you are the account owner or administrator. In other words, if you create the account yourself, you can skip this step and just sign into your account. However, if someone else created the account and added you to the account, then you will need to ensure you have sufficient permissions.
-
-To sign up for the Azure Free Trial, visit <a href="https://aka.ms/edx-dev212x-az" title="" target="_blank">Azure Free Trial</a>, and log in with a Microsoft ID. (You can use the same ID you created or used when setting up the VSTS account.) One catch is that you will need a credit card. This card is not charged, but it used to prevent bots from creating hundreds of free trials and getting free compute.
-
-If you'd like to watch a video, showing how to sign up for a free Azure trial, visit the <a href="https://channel9.msdn.com/Blogs/Windows-Azure/Sign-up-for-Microsoft-Azure" title="" target="_blank">Sign up for Azure</a> video on Channel9.
-
-Alternatively, if you have an MSDN subscription, you can activate your free, monthly Azure credits (up to $150/month). Details can be found at the <a href="https://aka.ms/edx-dev212x-az1" title="" target="_blank">Azure MSDN Benefits</a> site.
-
-## Task 3 - Download and install Git ##
-**Note**: If you already have a Git client installed, this step is not required. However, if you do not have a Git command line, then you will need to translate the labs (and demo videos) into your graphical Git tool. If you choose, you can use Visual Studio Community on Windows as a graphical tool. However, I personally recommend getting comfortable with Git from the command line.
-
-1. Download an OS specific Git client from <a href="https://git-scm.com/downloads" title="" target="_blank">Git download site.</a>
-
-![](http://i.imgur.com/gkjDCsn.png)
-
-1. When installing on Windows, you can feel free to keep the defaults of the installer except you will want to make sure that Git is in the path if you want to use Git command line in Command Prompt or PowerShell. Or, you can choose to just use Git Bash, which is Git's command window.
-
-![](http://i.imgur.com/uuLzR9s.png)
-
-## Optional - Visual Studio Community ##
-If you are on a Windows OS, and do not have Visual Studio 2015 Professional or Enterprise editions, then you can download and install <a href="https://aka.ms/edx-dev212x-vs1" title="" target="_blank">Visual Studio 2015 Community</a> for free. It is not required for any of the labs, however it will be used in some of the demos. In every case, alternate approaches (browser or git command line) will be demonstrated.
-
+`Outline > Module 1: Overview of DevOps > Overview of Hands-on Labs and Prerequisites > Lab Prerequisites and Tools - Linux/Java `
+# TODO - Insert Lab 1 - Linux here # 
 
 `Outline > Module 1: Overview of DevOps > Module Review > Module Review `
 
