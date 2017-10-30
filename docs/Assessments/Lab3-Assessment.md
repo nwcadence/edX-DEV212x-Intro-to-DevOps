@@ -11,25 +11,6 @@ Your scores from the module assessments will be combined, and account for 55% o
 *If you have any questions about grading or specific questions, please post them in the course discussion forum. However, please avoid posting any information that will reveal answers to your fellow students. In the event of a dispute, the course staff's decision is final.*
 
 
-## Multiple Choice ##
-*10.0 points possible (graded)*
-
-<<display_name:Question 1; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
-
->>Which two of the following statements describe the benefits of “Continuous Delivery (CD)”?
-
-[X] CD ensures that code is tested frequently before being deployed to production.   
-[ ] CD ensures that every code change is properly reviewed.   
-[ ] CD ensures that developers code according to specifications.   
-[x] CD ensures that source code is committed to the source repository before being deployed.   
-
-[explanation]   
-Continuous Delivery ensures code is tested frequently as builds and deployments (with associated tests) occur frequently. Additionally, since build and deployment is done from a source repository, both code and configuration need to be source controlled in order to impact a deployment environment. 
-
-Continuous Delivery does not validate that every code change is properly reviewed, or that developers code to specifications.   
-[explanation]
-
-
 ## Choose One ##
 *10.0 points possible (graded)*
 

@@ -16,6 +16,25 @@ Your scores from the module assessments will be combined, and account for 55% o
 
 <<display_name:Question 1; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
 
+>>Which two of the following statements describe the benefits of “Continuous Delivery (CD)”?
+
+[X] CD ensures that code is tested frequently before being deployed to production.
+[ ] CD ensures that every code change is properly reviewed.
+[ ] CD ensures that developers code according to specifications.
+[x] CD ensures that source code is committed to the source repository before being deployed.
+
+[explanation]
+Continuous Delivery ensures code is tested frequently as builds and deployments (with associated tests) occur frequently. Additionally, since build and deployment is done from a source repository, both code and configuration need to be source controlled in order to impact a deployment environment.
+
+Continuous Delivery does not validate that every code change is properly reviewed, or that developers code to specifications.
+[explanation]
+
+
+## Multiple Choice ##
+*10.0 points possible (graded)*
+
+<<display_name:Question 1; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
+
 >>What are some of the benefits of describing your infrastructure and configuration as code? Select three.
 
 [x] Facilitates automation   
@@ -89,20 +108,3 @@ Checking builds into source control, approval by a change control board, and doc
 [explanation]
 
 
-## Choose One ##
-*10.0 points possible (graded)*
-
-<<display_name:Question 5; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
-
->>Which statement below most accurately describes Application Performance Monitoring (APM)?
-
-( ) Dynamically scale servers to ensure there is enough RAM, CPU and disk space.    
-( ) Performing load tests on an application.    
-(x) Monitoring usage and performance metrics in production.   
-( ) Measuring the time taken between code check-in and deployment. 
-
-[explanation]   
-Application Performance Monitoring (APM) is used, among other things, to monitor usage and performance metrics of an application in production.
-
-Often, based on APM metrics a team will configure tools to autoscale servers (including RAM, CPU and disk space), however this is not a core part of APM. Instead, it is in response to APM measurements. Additionally, although performing load tests while measuring responses with an APM tool is often done, it is not the core purpose of APM. Finally, the time between code check-in and deployment is an excellent measure, however it is not related to APM.   
-[explanation]

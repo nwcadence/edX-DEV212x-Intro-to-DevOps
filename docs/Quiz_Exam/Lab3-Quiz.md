@@ -1,4 +1,4 @@
-Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Exercise > Exercise 
+Outline > Module 3: Continuous Integration and Continuous Testing > Exercise > Exercise 
 
 # Exercise #
 
@@ -8,7 +8,7 @@ The goal of this exercise is to help you recall and internalize what you've lea
 Please note completing all the exercises in the course account for 20% of your overall grade for the course. After completing the exercise, you need to mark completion in the self-check section on the bottom of the page.
 
 #### Assignment Part One ####
-- Write a summary in your own words to describe continuous integration, continuous testing, and continuous delivery and why these practices are important.  In your summary, use your real-world experience as examples and go deeper in the areas that you think are particularly important in your software delivery process.
+- Write a summary in your own words to describe continuous integration and continuous testing and why these practices are important.  In your summary, use your real-world experience as examples and go deeper in the areas that you think are particularly important in your software delivery process.
 
 - Share your summary in the discussion forum. Please try to limit your write-up between 150 to 700 words.
 

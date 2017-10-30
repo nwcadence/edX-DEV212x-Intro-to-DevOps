@@ -1,4 +1,4 @@
-Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Exercise > Exercise 
+Outline > Module 4: Configuration Management and Release Management > Exercise > Exercise 
 
 # Exercise #
 
@@ -7,7 +7,7 @@ The goal of this exercise is to help you recall and internalize what you've lea
 Please note completing all the exercises in the course account for 20% of your overall grade for the course. After completing the exercise, you need to mark completion in the self-check section on the bottom of the page.
 
 #### Assignment Part One ####
-- Write a summary in your own words to describe configuration management, release management, application performance monitoring, and why these practices are important.  In your summary, use your real-world experience as examples and go deeper in the areas that you think are particularly important in your software delivery process.
+- Write a summary in your own words to describe configuration management and release management and why these practices are important.  In your summary, use your real-world experience as examples and go deeper in the areas that you think are particularly important in your software delivery process.
 
 - Share your summary in the discussion forum. Please try to limit your write-up between 150 to 700 words.
 
