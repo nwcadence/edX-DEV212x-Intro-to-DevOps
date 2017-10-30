@@ -335,7 +335,7 @@ Microsoft Azure: <a href="https://aka.ms/edx-dev212x-az01" title="" target="_bla
 
 ## External Resources on DevOps ##
 
-- The State of DevOps reports: <a href="https://puppetlabs.com/sites/default/files/2014-state-of-devops-report.pdf" title="" target="_blank">2014</a>; <a href="https://puppetlabs.com/sites/default/files/2015-state-of-devops-report.pdf" title="" target="_blank">2015.</a>
+- The State of DevOps reports: <a href="https://puppet.com/resources/whitepaper/2014-state-devops-report" title="" target="_blank">2014</a>; <a href="https://puppet.com/resources/whitepaper/2015-state-devops-report" title="" target="_blank">2015</a>;<a href="https://puppet.com/resources/whitepaper/2016-state-devops-report" title="" target="_blank">2016</a>;<a href="https://puppet.com/resources/whitepaper/2017-state-devops-report" title="" target="_blank">2017</a>. 
 - The Velocity 2009 Presentation <a href="https://www.youtube.com/watch?v=LdOe18KhtT4" title="" target="_blank">"10+ Deploys per Day"</a> by John Allspaw and Paul Hammond.
 - Presentation at Build 2016 by Brian Keller and Lori Lamkin from Microsoft: <a href="https://channel9.msdn.com/events/Build/2016/B846" title="" target="_blank">DevOps at Scale: A True Story.</a>
 - <a href="http://www.amazon.com/The-Phoenix-Project-Helping-Business/dp/0988262592" title="" target="_blank">The Phoenix Project: A Novel about IT, DevOps and Helping Your Business Win</a>
@@ -438,9 +438,9 @@ Automation:
 - Enables speed, reliability, and consistency.
 - Empowers frequent releases and self-service.
 
-There are many tools for automation in the Operations space, such as Puppet, Chef, PowerShell DSC, Azure Resource Manager (ARM) and others. These tools enable automation for almost any task that is typically performed by ops staff, from provisioning and configuring machines to configuring networks and firewalls to monitoring (and correcting) configuration drift.
+There are many tools for automation in the Operations space, such as Puppet, Chef, PowerShell DSC, Azure Resource Manager (ARM) and others. These tools enable automation for almost any task that is typically performed by operations staff, from provisioning and configuring machines to configuring networks and firewalls to monitoring (and correcting) configuration drift.
 
-Throughout the following Dev-Test- Release pipeline, automation plays an important role to deliver value continuously.
+Throughout the following Dev-Test-Release pipeline, automation plays an important role to deliver value continuously.
 
 ![](http://i.imgur.com/benuVaj.png)
 
@@ -470,6 +470,8 @@ For more information about how small frequent releases can reduce the error rate
 ## Delivering Small Increments of Value ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/fG1AgtmA-tQ]**
+
+# TODO - Figure out why this is in Module 2... Copy down? #
 # Defining a Build Pipeline #
 
 ### Build Pipeline ###
@@ -483,25 +485,25 @@ Typically, a build pipeline is defined with the following components: 
 
 - *Trigger*
 
-Typically, when code is checked into a branch or folder in source control, a build is automatically triggered.
+	Typically, when code is checked into a branch or folder in source control, a build is automatically triggered.
 
-Builds are typically failed if anything in the pipeline fails, alerting the team for potential issues. Mechanisms such as gated check-in prevent code from being merged into the source repo if the build fails, ensuring that the main branch is always €œclean€.
+	Builds are typically failed if anything in the pipeline fails, alerting the team for potential issues. Mechanisms such as gated check-in prevent code from being merged into the source repo if the build fails, ensuring that the main branch is always clean.
 
 - *Tasks*
 
-The code is compiled and other tasks, such as client side minification, are executed.
+	The code is compiled and other tasks, such as client side minification, are executed.
   
-*Unit Testing*
+- *Unit Testing*
 
-Unit tests are performed to validate that the code is of high quality. 
+	Unit tests are performed to validate that the code is of high quality. 
 
 - *Code Analysis*
 
-Static code analysis is performed and other quality metrics are gathered into a Technical Debt Management system, such as SonarQube. 
+	Static code analysis is performed and other quality metrics are gathered into a Technical Debt Management system, such as SonarQube. 
 
 - *Packaging and Versioning*
 
-Assemblies are versioned and packaged so that it is ready for deployment. Sometimes the packages are uploaded to a package repository.
+	Assemblies are versioned and packaged so that it is ready for deployment. Sometimes the packages are uploaded to a package repository.
 
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Defining a Build Pipeline > Defining a Build Pipeline (Video Instruction) `
@@ -517,9 +519,11 @@ Assemblies are versioned and packaged so that it is ready for deployment. Someti
 
 # Learn Git #
 
-### LAB 2 - learn git Interactively ###
+### LAB 2 - Learn Git Interactively ###
 
 Teaching Git is beyond the scope of this course, especially since any version control system can be used effectively in a DevOps continuous delivery pipeline. However, Git is an amazingly popular version control system, and there are a number of wonderful training resources online. The following are excellent sites to learn more about Git.
+
+# TODO - ry's git tutorial is temporarily down - validate it's back up. #
 
 1. Follow the instructions on the GitHub <a href="https://try.github.io/levels/1/challenges/1" title="" target="_blank">tryGit tutorial</a> to learn the basic commands in Git.
 1. Optionally, for more detailed lessons, visit <a href="http://rypress.com/tutorials/git/index" title="" target="_blank">Ry's Git Tutorial.</a> The first 4 lessons are the most valuable for this course.
