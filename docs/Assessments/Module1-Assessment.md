@@ -1,4 +1,4 @@
-Outline > Module 1: Overview of DevOps > Assessments > Assessment Questions 
+Outline > Module 1: Overview of DevOps > Assessments > Assessments
 
 # Assessment Questions #
 

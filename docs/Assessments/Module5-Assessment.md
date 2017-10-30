@@ -1,4 +1,4 @@
-Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Assessments > Assessments 
+Outline > Module 5: Monitoring and Learning > Assessments > Assessments 
 
 # Assessments #
 
