@@ -161,7 +161,7 @@ In the first module, you'll learn:
 
 ## Definition ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: LINK]**
+**[Video link: https://www.youtube.com/watch?v=O3TbH75mdos]**
 
 
 `Outline > Module 1: Overview of DevOps > The Definition and Value of DevOps > The Value of DevOps `
@@ -670,7 +670,8 @@ Typically, a build pipeline is defined with the following components: 
 
 ## Migrate Code to VSTS from GitHub ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: Replace with new video (TODO) **
+**TODO**
+**[Video link: https://www.youtube.com/watch?v=S83kn0i4WYs**
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Demo Video: Continuous Integration `
 
