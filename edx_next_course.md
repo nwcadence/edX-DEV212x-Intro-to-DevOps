@@ -725,17 +725,15 @@ For more information on Automated Testing and Continuous Integration, check out 
 <a href="http://devops.com/2014/12/11/continuous-delivery-continuous-deployment/" title="" target="_blank">Continuous Delivery and Continuous Deployment</a> by Vishal Sahasrabuddhe.
 
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Introduction > Module Overview `
+`Outline > Module 4: Configuration Management and Release Management > Introduction > Module Overview `
 
 # Module Overview #
-
-# TODO - Split Module 4 - Wait for Lei feedback at least until Monday at 10:00 AM #
 
 ## Module 4 Overview ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/gFAP9Fo0PSU]**
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Configuration Management and Release Management > Configuration Management `
+`Outline > Module 4: Configuration Management and Release Management > Configuration Management and Release Management > Configuration Management `
 
 # Configuration Management #
 
@@ -765,7 +763,7 @@ Configuration Management provides the following benefits:
 **[Video link: https://youtu.be/D4To34eL7eE]**
 
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Configuration Management and Release Management > Release Management `
+`Outline > Module 4: Configuration Management and Release Management > Configuration Management and Release Management > Release Management `
 
 # Release Management #
 
@@ -793,7 +791,7 @@ Release Management provides the following benefits:
 **[Video link: https://youtu.be/iL6GjX_eMxk]**
 
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Configuration Management and Release Management > Defining a Deployment Pipeline `
+`Outline > Module 4: Configuration Management and Release Management > Configuration Management and Release Management > Defining a Deployment Pipeline `
 
 # Defining a Deployment Pipeline #
 
@@ -820,9 +818,71 @@ Typically, a deployment pipeline is defined with the following components:
 **[Video link: https://youtu.be/uYK0Cn24Hbc]**
 
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Monitoring and Learning > Application Performance Monitoring `
+`Outline > Module 4: Configuration Management and Release Management > Hands-on Lab: Release Management > Lab Instructions - Windows/.NET`
 
-# TODO - Based on decision with Module 5 - move this to Mod 5 #
+ [LAB 4 - Release Management](docs/Lab4-Win_.NET/edX-DEV212x-Lab4-Win_.NET.md)
+
+`Outline > Module 4: Configuration Management and Release Management > Hands-on Lab: Release Management > Lab Instructions - Linux/Java`
+
+ [LAB 4 - Release Management](docs/Lab4-Linux_Java/edX-DEV212x-Lab4-Linux_Java.md)
+
+`Outline > Module 4: Configuration Management and Release Management > Hands-on Lab: Release Management > Demos `
+
+# Demos #
+
+## The Parts of a Deployment Pipeline ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: https://youtu.be/0w-qHwAjYm0]**
+
+`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Module Review > Module Review `
+
+# Module Review #
+
+**[Note for Content Publisher: embed the following link]**   
+<a href="https://sway.com/skK5M8Yij5sLHSyd" title="" target="_blank">https://sway.com/skK5M8Yij5sLHSyd</a>
+
+
+`Outline > Module 4: Configuration Management and Release Management > Supplemental Learning > Microsoft Channel 9 videos `
+
+# Microsoft Channel 9 videos #
+
+For more information on Release Management, Configuration Management, and Application Performance Monitoring, check out the following videos from <a href="https://channel9.msdn.com/" title="" target="_blank">Microsoft Channel 9.</a>
+
+
+## Continuous Deployment and Release Management ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: https://sec.ch9.ms/ch9/bec4/d5c459b6-0e61-47c6-9c8b-0c6a6ad8bec4/DevOpsFundamentalsContinuousDeployment_high.mp4]**
+
+## Configuration Management ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: https://sec.ch9.ms/ch9/5aab/6b5d0819-fa03-4792-bd50-84d2c3845aab/ConfigurationManagement_high.mp4]**
+
+`Outline > Module 4: Configuration Management and Release Management > Supplemental Learning > Links to External Resources `
+
+# Links to External Resources #
+
+<a href="http://devops.com/2014/06/30/infrastructure-as-code/" title="" target="_blank">Infrastructure-as-code, new rules for the old game</a> by JP Morgenthal.
+
+<a href="http://devops.com/2014/05/05/meet-infrastructure-code/" title="" target="_blank">Meet Infrastructure as Code</a> by Chris Riley.
+
+<a href="http://devops.com/2015/04/29/if-you-code-your-apps-why-do-you-still-configure-your-it-infrastructure/" title="" target="_blank">If you "code" your apps, why do you still "configure" your IT infrastructure?</a> by Ranga Rajagopalan.
+
+<a href="http://devops.com/2015/04/16/automation-provisioning-configuration-management-puppet/" title="" target="_blank">Automation, Provisioning and Configuration Management with PUPPET</a> by Sudhi Seshachala.
+
+<a href="http://devops.com/2015/03/16/automation-provisioning-configuration-management-chef/" title="" target="_blank">Automation, Provisioning & Configuration Management (CHEF)</a> by Sudhi Seshachala.
+
+<a href="http://devops.com/2015/05/19/release-management-catalyst-devops/" title="" target="_blank">Release Management, a catalyst for DevOps</a> by Salaam Khurram.
+
+
+`Outline > Module 5: Monitoring and Learning > Introduction > Module Overview `
+
+# Module Overview #
+
+## Module 5 Overview ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: ]**
+
+` Outline > Module 5: Monitoring and Learning > Application Performance Monitoring `
 
 # Application Performance Monitoring #
 
@@ -842,9 +902,9 @@ Typically, a deployment pipeline is defined with the following components:
 Application monitoring:
 
 - Identifies problems in the application.
-- Dives insights into backlog from production.
+- Drives insights into backlog from production.
 - Enables hypothesis driven development.
-	- User telemetry helps the team to take proactive actions instead of reactive actions.
+- User telemetry helps the team to take proactive actions instead of reactive actions.
 
 ### Types of Application Monitoring ###
 
@@ -857,74 +917,44 @@ Application monitoring:
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/rjOHyyifvAw]**
 
+`Outline > Module 5: Monitoring and Learning > Hands-on Lab: Monitoring and Learning > Lab Instructions - Windows/.NET`
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions - Windows/.NET`
+ [LAB 5 - Monitoring and Learning](docs/Lab5-Win_.NET/edX-DEV212x-Lab5-Win_.NET.md)
 
- [LAB 4 - Release Management](docs/Lab4-Win_.NET/edX-DEV212x-Lab4-Win_.NET.md)
+`Outline > Module 5: Monitoring and Learning > Hands-on Lab: Monitoring and Learning > Lab Instructions - Linux/Java`
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Lab Instructions - Linux/Java`
+ [LAB 5 - Monitoring and Learning](docs/Lab5-Linux_Java/edX-DEV212x-Lab5-Linux_Java.md)
 
- [LAB 4 - Release Management](docs/Lab4-Linux_Java/edX-DEV212x-Lab4-Linux_Java.md)
-
-
-
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Hands-on Lab: Release Management > Demos `
+`Outline > Module 5: Monitoring and Learning > Hands-on Lab: Monitoring and Learning > Demos `
 
 # Demos #
-
-## The Parts of a Deployment Pipeline ##
-![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/0w-qHwAjYm0]**
-
-## TODO - This might move to Mod 5 ##
 
 ## Application Insights as an Application Performance Monitoring Tool ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/xUsiIzF6Oe4]**
 
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Module Review > Module Review `
+## Using Application Insights to determine what to build next ##
+![](http://i.imgur.com/mBKU7Le.jpg)
+**[Video link: https://www.youtube.com/watch?time_continue=217&v=MZDYf18V0Ps]**
+
+`Outline > Module 5: Monitoring and Learning > Module Review > Module Review `
 
 # Module Review #
 
 **[Note for Content Publisher: embed the following link]**   
-<a href="https://sway.com/skK5M8Yij5sLHSyd" title="" target="_blank">https://sway.com/skK5M8Yij5sLHSyd</a>
+<a href="" title="" target="_blank"></a>
 
-
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Supplemental Learning > Microsoft Channel 9 videos `
+`Outline > Module 5: Monitoring & Learning > Supplemental Learning > Microsoft Channel 9 videos `
 
 # Microsoft Channel 9 videos #
-
-For more information on Release Management, Configuration Management, and Application Performance Monitoring, check out the following videos from <a href="https://channel9.msdn.com/" title="" target="_blank">Microsoft Channel 9.</a>
-
-
-## Continuous Deployment and Release Management ##
-![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://sec.ch9.ms/ch9/bec4/d5c459b6-0e61-47c6-9c8b-0c6a6ad8bec4/DevOpsFundamentalsContinuousDeployment_high.mp4]**
-
-## Configuration Management ##
-![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://sec.ch9.ms/ch9/5aab/6b5d0819-fa03-4792-bd50-84d2c3845aab/ConfigurationManagement_high.mp4]**
 
 ## Application Performance Monitoring ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://sec.ch9.ms/ch9/09fe/7c2d6081-bd60-4a17-bf15-8c128b5009fe/ApplicationPerformanceMonitoring_high.mp4]**
 
-
-`Outline > Module 4: Configuration Management, Release Management and Monitoring & Learning > Supplemental Learning > Links to External Resources `
+`Outline > Module 5: Monitoring and Learning > Supplemental Learning > Links to External Resources `
 
 # Links to External Resources #
-
-<a href="http://devops.com/2014/06/30/infrastructure-as-code/" title="" target="_blank">Infrastructure-as-code, new rules for the old game</a> by JP Morgenthal.
-
-<a href="http://devops.com/2014/05/05/meet-infrastructure-code/" title="" target="_blank">Meet Infrastructure as Code</a> by Chris Riley.
-
-<a href="http://devops.com/2015/04/29/if-you-code-your-apps-why-do-you-still-configure-your-it-infrastructure/" title="" target="_blank">If you "code" your apps, why do you still "configure" your IT infrastructure?</a> by Ranga Rajagopalan.
-
-<a href="http://devops.com/2015/04/16/automation-provisioning-configuration-management-puppet/" title="" target="_blank">Automation, Provisioning and Configuration Management with PUPPET</a> by Sudhi Seshachala.
-
-<a href="http://devops.com/2015/03/16/automation-provisioning-configuration-management-chef/" title="" target="_blank">Automation, Provisioning & Configuration Management (CHEF)</a> by Sudhi Seshachala.
-
-<a href="http://devops.com/2015/05/19/release-management-catalyst-devops/" title="" target="_blank">Release Management, a catalyst for DevOps</a> by Salaam Khurram.
 
 <a href="https://azure.microsoft.com/en-us/blog/service-monitoring-and-diagnostics-2/" title="" target="_blank">Service Monitoring and Diagnostics</a> by Victor Mushkatin.
 
@@ -932,11 +962,7 @@ For more information on Release Management, Configuration Management, and Applic
 
 <a href="http://devops.com/2015/03/17/can-devops-apm-initiatives-increase-customer-loyalty/" title="" target="_blank">Can your DevOps and APM initiatives increase customer loyalty?</a> by Peter Waterhouse.
 
-
 `Outline > Final Exam > Post-course Survey > Post-course survey `
-
-# TODO - Add Module 5 #
-
 
 # Post-course survey #
 
