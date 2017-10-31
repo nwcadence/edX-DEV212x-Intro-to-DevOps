@@ -301,7 +301,7 @@ The demos below intend to give you a quick overview of the Parts Unlimited appl
 
 ## Walkthrough of PartsUnlimited Application ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/yDjdwMNP-rE]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=1030ea973b89c43078f0d5bcacec98e5b&authkey=AbNusLnUTJNArwO5GisCV7M&expiration=2017-11-05T16%3A10%3A58.000Z&e=6bb8468388334f2e9c27fd080c50033c]**
 
 ## (Optional) DevOps Pipeline ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
@@ -535,7 +535,8 @@ the beginning of the module:
 
 ## Module 3 Overview ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/P_N5hXJ1Dj4]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=12e8e459952ef4da7bd47e91e49b91546&authkey=AXZEpGGWnuR4oH8bY_ncBBE&expiration=2017-11-05T16%3A20%3A23.000Z&e=01a724d85c9b40fd810f070dc7ef7e6f]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=1a321c577aac3453a856f41e24073ecb3&authkey=Af2CZJf2nz8aWPZQNFp7jD4&expiration=2017-11-05T16%3A20%3A53.000Z&e=b5c366884aa248a185137d19bf09cf36]**
 
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Continuous Integration, Continuous Delivery, and Continuous Testing > Continuous Integration and Continuous Delivery `
@@ -651,7 +652,8 @@ Typically, a build pipeline is defined with the following components: 
 
 ## Defining a Build Pipeline ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/yWhZOjdhbyo]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=12e8e459952ef4da7bd47e91e49b91546&authkey=AXZEpGGWnuR4oH8bY_ncBBE&expiration=2017-11-05T16%3A20%3A23.000Z&e=82c1d3709da14ed7a88dbf94e027b3ee]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=1a321c577aac3453a856f41e24073ecb3&authkey=Af2CZJf2nz8aWPZQNFp7jD4&expiration=2017-11-05T16%3A20%3A53.000Z&e=8d7b212ca73f42d288eb66e23cf05122]**
 
 
 `Outline > Module 3: Continuous Integration, Continuous Delivery, and Continuous Testing > Hands-on Lab: Continuous Integration > Lab Instructions - Windows/.NET`
@@ -731,7 +733,8 @@ For more information on Automated Testing and Continuous Integration, check out 
 
 ## Module 4 Overview ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: https://youtu.be/gFAP9Fo0PSU]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=1570643f7fce34f08a49152d0fc0c1d37&authkey=AferlxW0PjrMj0jLP_UvYaQ&expiration=2017-11-05T16%3A22%3A11.000Z&e=6b3fc3c7473d414bb3acc1439080d857]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=1ba6dbb1cd55146c0acbc496fd1dd8b35&authkey=AQPKgG-cYI9aTekkbUynJDY&expiration=2017-11-05T16%3A22%3A38.000Z&e=d8a0a733adcb4be59ff95424764bbcc3]**
 
 `Outline > Module 4: Configuration Management and Release Management > Configuration Management and Release Management > Configuration Management `
 
@@ -880,7 +883,9 @@ For more information on Release Management, Configuration Management, and Applic
 
 ## Module 5 Overview ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
-**[Video link: ]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=11f5d78f8389145629631f0cfb440ad93&authkey=AYh2Scq6uxDn_cj9koBHyo4&expiration=2017-11-05T16%3A27%3A41.000Z&e=c2dc1fb69718458f8de4d4de29faa17b]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=129f17e6fb979499b9e4847e9a202ec15&authkey=Ad_U7fpGqzGo5Kbv5Fq6gbU&expiration=2017-11-05T16%3A28%3A40.000Z&e=aa4af5a3c18e4e6c860881083b084a0e]**
+**[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=111121c4021654d0ea26025f91e4db265&authkey=AaGm2iavxyn8Tki_R1BnBxE&expiration=2017-11-05T16%3A29%3A19.000Z&e=2179c71043324803a47b15aea10d1784]**
 
 ` Outline > Module 5: Monitoring and Learning > Application Performance Monitoring `
 
