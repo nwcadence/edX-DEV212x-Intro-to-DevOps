@@ -888,13 +888,35 @@ For more information on Release Management, Configuration Management, and Applic
 **[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=129f17e6fb979499b9e4847e9a202ec15&authkey=Ad_U7fpGqzGo5Kbv5Fq6gbU&expiration=2017-11-05T16%3A28%3A40.000Z&e=aa4af5a3c18e4e6c860881083b084a0e]**
 **[Video link: https://northwestcadence-my.sharepoint.com/personal/troy_loftus_nwcadence_com/_layouts/15/guestaccess.aspx?docid=111121c4021654d0ea26025f91e4db265&authkey=AaGm2iavxyn8Tki_R1BnBxE&expiration=2017-11-05T16%3A29%3A19.000Z&e=2179c71043324803a47b15aea10d1784]**
 
+` Outline > Module 5: Monitoring and Learning > Feedback `
+
+# Feedback #
+
+### Feedback ###
+
+One of the primary motivations for DevOps is to receive fast feedback, and it's important for us to begin this module by explaining why you should care about getting feedback. 
+
+Take a moment to answer this question for yourself: How do you currently know that you're building the right features for your apps? Do you have any way of knowing now that the features are being used as they were intended and are producing the expected amount of value in return? 
+
+Without detailed feedback being returned for your app, you may rely on guessing or assumptions that may be incorrect for which new features to build or which features are relevant. This costs time and money for putting in effort to build features that may have an unknown return on investment (ROI).
+
+Using practices in DevOps, we can ensure that we are building the features that are most relevant and valuable by receiving fast feedback the new features. One practice in DevOps for this is using hypothesis-driven development, which is the idea of creating a hypothesis, testing it with an experiment, and measuring that hypothesis. In other words, starting off development on a feature with a hypothesis or expectation that when the feature is released, it will drive *N* number of additional users within 24 hours. Another addition to hypothesis-driven development can be adding the business problem that this feature will solve (the "why") so it can be understood that this feature is specifically addressing a business problem. 
+
+Now how do we obtain feedback on our app? This module will address different ways that feedback can be gathered through different tools and practices, including through A/B Testing, Feature Flags, and monitoring tools (such as Application Performance Management).
+
+## Feedback ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link:https://youtu.be/MZDYf18V0Ps]**
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link:https://youtu.be/ii7LwgofdrM]**
+
 ` Outline > Module 5: Monitoring and Learning > Application Performance Monitoring `
 
 # Application Performance Monitoring #
 
 ### Application Performance Monitoring (APM) ###
 
-- Application Performance Monitoring (APM) means monitoring and learning from "live site". 
+- Application Performance Monitoring (APM) means monitoring and learning from a "live site". 
 - APM tools usually provide the following information:
 	- Diagnostics and error reporting
 	- Usage patterns and trends
@@ -923,6 +945,34 @@ Application monitoring:
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/rjOHyyifvAw]**
 
+` Outline > Module 5: Monitoring and Learning > A/B Testing `
+
+In software development and DevOps, A/B Testing is the process of experimenting with two different versions of the same app and using telemetry to compare results in user behavior. Version A may be the currently used version and version B may have a variant. Depending on the implementation of A/B Testing, user traffic may be directed randomly to each version or directed in progressive rings. Then, monitoring tools collect data to see if user behavior differs based on the change in version B. A/B Testing is also often associated with testing performance of features between versions (if A is more performant than B or vice versa). An example of this may be if a particular product is not selling as many units, version A may have a current discount for the product at 10% off while version B has a new discount for the product at 15% off. Telemetry will collect data if more users purchase the product in version B versus version A. 
+
+A/B Testing is very beneficial in DevOps because it allows constant testing and measuring of features and allows for evidence-based decisions for work to be done on new features. In addition, this practice ties back into hypothesis-driven development mentioned earlier in this module, in that hypotheses are made and A/B Testing validates these hypotheses. 
+
+Two of the most common ways that A/B Testing can be implemented is through blue-green deployments and canary releases. 
+
+Blue-green deployments uses the concept of A/B Testing to manage deployments and traffic that gets directed through a load balancer. In blue-green deployments, there are two identical production environments. While one environment is currently being used as the live production slot (such as green), a new feature is deployed to the idle environment (blue) and a load balancer is used to direct some traffic from the live production slot (green) to the other slot (blue). Once ready to switch all users over, swap the slots for blue and green (making blue live and green idle). This process reduces downtime, creates two easily switchable environments (and staging slot),and enables stable rollback and disaster recovery scenarios. If using a resource such as Azure App Service with deployment slots, once ready to switch from staging (blue) to live (green), you can swap the deployment slots easily for minimal downtime (and swap back to rollback). 
+
+Another technique for implementing A/B Testing is using canary releases (also referred to as phased or incremental rollout). Similarly to blue-green deployments, a new version of the code is deployed to a subset of infrastructure with no users routed. Then, routing is updated so that a few users are directed to the new version. As confidence for the release grows, more users are routed to it until everyone is routed to the new version. Each subset of users introduced to the new feature is referred to as "rings" (each stage = ring). Routing traffic is gradually distributed across these deployments so that if the new version is broken, only the small subset of users were aware of it. The users that are first to see the new versions (the first "ring") may be internal users, random users, or users based on a profile. This deployment technique gives the benefit of capacity testing for load and also having a stable rollback strategy as well. 
+
+A/B Testing is a key concept in DevOps in order to learn from production. Both blue-green deployments and canary releases are suitable options for rollouts of new features into production and learning from user behavior.
+
+## Blue Green Deployments and Canary Releases ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: https://youtu.be/YWNNMpRONxk]**
+
+` Outline > Module 5: Monitoring and Learning > Feature Flags `
+
+Feature flags (also called feature toggles) are often used in combination with A/B Testing as a practice in DevOps for gated functionality. The concept of feature flags is relatively simple: For certain features that should be made visible or invisible to users, wrap those features in conditionals to control those features' visibility in the release. Feature Flags can be used either natively through code or with other tools. A simple example of a feature flag is if you release a new page to your app that is accessible through a button on your main page, set a feature flag on that button so that it makes the button visible for some and invisible for others. By setting a flag on a new feature, this isolates the effect on the overall app and gives flexibility to turn on or off a flag independently.
+
+Feature flags provide many benefits for DevOps practices beyond just monitoring and learning. Continuous Delivery and feature flags work hand-in-hand by enabling frequent deployments. For instance, if a feature that is being developed is not quite done before it's time to deploy, rather than pushing out the release date or the feature later, wrapping the feature around a feature flag enables the deployment to proceed as normal while still making that new feature invisible to users. From the perspective of monitoring and learning, feature flags can also act as kill switches if performance for a feature drops, an opt-in beta access to users for new features, phased deployment for a subset of users (canary releases), deployment to a subset of users with different production environments (blue-green deployments), and running A/B tests for performance.
+
+## Feature Flags ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: https://youtu.be/F0jpKJIHUq0]**
+
 `Outline > Module 5: Monitoring and Learning > Hands-on Lab: Monitoring and Learning > Lab Instructions - Windows/.NET`
 
  [LAB 5 - Monitoring and Learning](docs/Lab5-Win_.NET/edX-DEV212x-Lab5-Win_.NET.md)
@@ -938,10 +988,6 @@ Application monitoring:
 ## Application Insights as an Application Performance Monitoring Tool ##
 ![](http://i.imgur.com/mBKU7Le.jpg)<br>
 **[Video link: https://youtu.be/xUsiIzF6Oe4]**
-
-## Using Application Insights to determine what to build next ##
-![](http://i.imgur.com/mBKU7Le.jpg)
-**[Video link: https://www.youtube.com/watch?time_continue=217&v=MZDYf18V0Ps]**
 
 `Outline > Module 5: Monitoring and Learning > Module Review > Module Review `
 
@@ -961,6 +1007,12 @@ Application monitoring:
 `Outline > Module 5: Monitoring and Learning > Supplemental Learning > Links to External Resources `
 
 # Links to External Resources #
+
+<a href="https://martinfowler.com/bliki/BlueGreenDeployment.html" title="" target="_blank">Blue Green Deployments</a> by Martin Fowler.
+
+<a href="https://martinfowler.com/bliki/CanaryRelease.html" title="" target="_blank">Canary Releases</a> by Danilo Sato.
+
+<a href="https://launchdarkly.com/microsoft/" title="" target="_blank">Launch Darkly extension for Visual Studio Team Services</a>
 
 <a href="https://azure.microsoft.com/en-us/blog/service-monitoring-and-diagnostics-2/" title="" target="_blank">Service Monitoring and Diagnostics</a> by Victor Mushkatin.
 

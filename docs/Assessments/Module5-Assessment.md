@@ -14,7 +14,7 @@ Your scores from the module assessments will be combined, and account for 55% o
 ## Choose One ##
 *10.0 points possible (graded)*
 
-<<display_name:Question 5; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
+<<display_name:Question 1; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
 
 >>Which statement below most accurately describes Application Performance Monitoring (APM)?
 
@@ -29,36 +29,38 @@ Application Performance Monitoring (APM) is used, among other things, to monitor
 Often, based on APM metrics a team will configure tools to autoscale servers (including RAM, CPU and disk space), however this is not a core part of APM. Instead, it is in response to APM measurements. Additionally, although performing load tests while measuring responses with an APM tool is often done, it is not the core purpose of APM. Finally, the time between code check-in and deployment is an excellent measure, however it is not related to APM.   
 [explanation]
 
-## Multiple Choice ##
+## Choose One ##
 *10.0 points possible (graded)*
 
 <<display_name:Question 2; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
 
->>What are some of the benefits of using Application Performance Monitoring? Select all that apply.
+>>What does the typical blue-green deployment process look like?
 
-[x] Identifies problems in the application   
-[x] Drives insights into backlog from production   
-[x] Enables hypothesis driven development   
-[x] User telemetry helps the team to take proactive actions instead of reactive actions
+( ) Deploy directly to production visible to everyone immediately without testing    
+(x) Two identical production slots, deploy to idle blue slot, direct traffic from live green slot to blue and then swap slots for full cutover  
+( ) Deploy in rings of users gradually
 
 [explanation]   
-These are all benefits of using Application Performance Monitoring! 
+Deploying directly to production immediately without testing should generally be avoided. Deploying in rings of users gradually generally refers to canary releases. Two identical production slots is the correct answer. 
+
+Blue-green deployments uses the concept of A/B Testing to manage deployments and traffic that gets directed through a load balancer. In blue-green deployments, there are two identical production environments. While one environment is currently being used as the live production slot (such as green), a new feature is deployed to the idle environment (blue) and a load balancer is used to direct some traffic from the live production slot (green) to the other slot (blue). Once ready to switch all users over, swap the slots for blue and green (making blue live and green idle). 
 [explanation]
+
 
 ## Multiple Choice ##
 *10.0 points possible (graded)*
 
 <<display_name:Question 3; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
 
->>What are some types of Application Performance Monitoring? Select three answers.
+>>What are some examples of using feature flags? Select three answers.
 
-[ ] Active Directory monitoring   
-[x] Usage monitoring   
-[x] Availability monitoring  
-[x] Performance monitoring   
+[x] Kill switch for performance issues with a feature   
+[x] Early access for new features for some users  
+[x] Scalable rollouts  
+[x] A/B Testing   
 
 [explanation]   
-Usage monitoring, availability monitoring, and performance monitoring are all types of Application Performance Monitoring. These can all be integrated together using application monitoring tools like App Insights.
+Feature flags can be used for more than the four answers above, but some examples are using them as kill switches in case of performance problems, opt-in early access, phased deployments/rollouts, and A/B testing.
 [explanation]
 
 ## Multiple Choice ##
