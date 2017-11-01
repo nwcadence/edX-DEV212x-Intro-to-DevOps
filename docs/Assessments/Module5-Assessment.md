@@ -52,7 +52,7 @@ Blue-green deployments uses the concept of A/B Testing to manage deployments and
 
 <<display_name:Question 3; max_attempts:2; weight:10; rerandomize:always; showanswer:finished; show_reset_button:false>>
 
->>What are some examples of using feature flags? Select three answers.
+>>What are some examples of using feature flags? Select all that apply.
 
 [x] Kill switch for performance issues with a feature   
 [x] Early access for new features for some users  
