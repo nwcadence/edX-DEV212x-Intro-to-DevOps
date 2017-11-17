@@ -85,7 +85,7 @@ Press "Go" after each change to the query to execute it against the current data
 
 ![](media/query1.png)
 
-The URL is not in an easy for parse format.  Extend the requests table with a new column called parsedurl that uses the parseurl and tolower functions to make the data we are interested in easy to retrieve.
+The URL is not in a format that is easily parsed.  Extend the requests table with a new column called parsedurl that uses the parseurl and tolower functions to make the data we are interested in easy to retrieve.
 ```
 extend parsedurl = parseurl(tolower(url))
 ```
@@ -102,7 +102,7 @@ extend categoryid = toint(parsedurl["Query Parameters"].categoryid)
 
 ![](media/query3.png)
 
-The category id is okay, but it is more clear if the categories are text related to the category. Add a datatable typed variable, before the query, with the conversion from category id to text.
+The category id is easy for a database engine to parse, but it is more clear to users if the categories are text related to the category. Add a datatable typed variable, before the query, with the conversion from category id to text.
 
 ```
 let categories = datatable (categoryid:int, categoryname:string)
@@ -178,7 +178,7 @@ If blue fails, don't change production, but remove the traffic being sent to tha
 
 ## Task 5: ##
 
-Modify code to increase the Oil discount to 15% (HomeController) and deploy to blue slot just as demonstrated in Lab 3 & Lab 4.  With the continuous integration and continuous deployment pipelines built this should be relatively fast.
+Modify code to increase the Oil discount to 15% (HomeController) and deploy to blue slot just as demonstrated in Lab 3 & Lab 4.  With the continuous integration and continuous deployment pipelines built this should be an straightforward task.
 
 Open website to see differences.  Use a header of x-ms-blue to see override the route traffic to the blue slot.
 
