@@ -34,7 +34,7 @@ Click on **> or import a repository** to expose the Import button and click it.
 
 ![](<media/vsts_import.png>)
 
-Copy in the URL of your source code (https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps). Enter 'PartsUnlimited' as the name of the repo and clikc Import.
+Copy in the URL of your source code (https://github.com/MicrosoftLearning/edX-DEV212x-Intro-to-DevOps). Enter 'PartsUnlimited' as the name of the repo and click Import.
 
 ![](<media/vsts_import_dialog.png>)
 
@@ -53,7 +53,7 @@ have created against it.
 **1.** Since Visual Studio Team Services is already open in a browser, from the **Code** hub, click on the the **Build and Release** hub at the top of the page.
 
 ![](<media/build_hub.png>)
-
+\
 **2.** In the build hub, click on the **New definition** button to create a new build definition.
 
 ![](<media/create_new_definition.png>)

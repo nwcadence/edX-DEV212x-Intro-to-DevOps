@@ -170,7 +170,7 @@ be necessary to run any infrastructure tasks during Staging or Production deploy
 		> **Note**: If you open the FullEnvironmentSetupMerged.param.json file, you will see empty placeholders for these parameters.
 		> You could hard code values in the file instead of specifying them as "overrides". Either way is valid. If you do specify
 		> values in the params file, remember that in order to change values, you would have to edit the file, commit and create a 
-		> new build in order for the Release to have access the new values.
+		> new build in order for the Release to have access to the new values.
 		
 		* `Enable Deployment Prerequisites`: Leave this unchecked - this enables WinRM for Virtual Machines. The template we are deploying does not have virtual machines, so we leave this setting unchecked.
 		You will shortly define the values for each parameter, like `$(ServerName)`, in the Environment variables.

@@ -16,7 +16,7 @@ The written labs in this course depend on several free prerequisites. However, i
 2. Create an Azure Free Trial account
 
 ## Task 1 - Create a Visual Studio Team Services (VSTS) Account ####
-> **Note**: If you already have a VSTS account, you can skip this step. However, you need to ensure that it is an account in which you are the account owner. In other words, if you create the account yourself, you can skip this step and just sign into your account. However, if some else created the account and added you to the account, then you will need to complete this step. Once you have signed into your existing account, then create a new Team Project as specified in [Task 3](#Ex4Task2).
+> **Note**: If you already have a VSTS account, you can skip this step. However, you need to ensure that it is an account in which you are the account owner. In other words, if you created the account yourself, you can skip this step and just sign into your account. However, if some else created the account and added you to the account, then you will need to complete this step. Once you have signed into your existing account, then create a new Team Project as specified in [Task 3](#Ex4Task2).
 
 1. Sign into [Visual Studio](https://go.microsoft.com/fwlink/?LinkId=307137).
 
@@ -25,7 +25,7 @@ The written labs in this course depend on several free prerequisites. However, i
     ![Signing in to visualstudio.com](media/ms_acct_signin.png "Signing into visualstudio.com")
 
 
-1. **Note**: If you do not have a Microsoft Account, then you will need to create one by clicking "Sign up now". Once you have created an account, you can sign in using that account.
+1. **Note**: If you do not have a Microsoft Account, then you will need to create one by clicking "Create one!". Once you have created an account, you can sign in using that account.
     ![No account in Visual Studio](media/ms_get_new.png)
 	
 	![](media/ms_new_account.png)
