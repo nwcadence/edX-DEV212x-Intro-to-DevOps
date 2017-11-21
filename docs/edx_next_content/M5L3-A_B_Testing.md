@@ -1,0 +1,18 @@
+` Outline > Module 5: Monitoring and Learning > A/B Testing `
+
+In software development and DevOps, A/B Testing is the process of experimenting with two different versions of the same app and using telemetry to compare results in user behavior. Version A may be the currently used version and version B may have a variant. Depending on the implementation of A/B Testing, user traffic may be directed randomly to each version or directed in progressive rings. Then, monitoring tools collect data to see if user behavior differs based on the change in version B. A/B Testing is also often associated with testing performance of features between versions (if A is more performant than B or vice versa). An example of this may be if a particular product is not selling as many units, version A may have a current discount for the product at 10% off while version B has a new discount for the product at 15% off. Telemetry will collect data if more users purchase the product in version B versus version A. 
+
+A/B Testing is very beneficial in DevOps because it allows constant testing and measuring of features and allows for evidence-based decisions for work to be done on new features. In addition, this practice ties back into hypothesis-driven development mentioned earlier in this module, in that hypotheses are made and A/B Testing validates these hypotheses. 
+
+Two of the most common ways that A/B Testing can be implemented is through blue-green deployments and canary releases. 
+
+Blue-green deployments uses the concept of A/B Testing to manage deployments and traffic that gets directed through a load balancer. In blue-green deployments, there are two identical production environments. While one environment is currently being used as the live production slot (such as green), a new feature is deployed to the idle environment (blue) and a load balancer is used to direct some traffic from the live production slot (green) to the other slot (blue). Once ready to switch all users over, swap the slots for blue and green (making blue live and green idle). This process reduces downtime, creates two easily switchable environments (and staging slot),and enables stable rollback and disaster recovery scenarios. If using a resource such as Azure App Service with deployment slots, once ready to switch from staging (blue) to live (green), you can swap the deployment slots easily for minimal downtime (and swap back to rollback). 
+
+Another technique for implementing A/B Testing is using canary releases (also referred to as phased or incremental rollout). Similarly to blue-green deployments, a new version of the code is deployed to a subset of infrastructure with no users routed. Then, routing is updated so that a few users are directed to the new version. As confidence for the release grows, more users are routed to it until everyone is routed to the new version. Each subset of users introduced to the new feature is referred to as "rings" (each stage = ring). Routing traffic is gradually distributed across these deployments so that if the new version is broken, only the small subset of users were aware of it. The users that are first to see the new versions (the first "ring") may be internal users, random users, or users based on a profile. This deployment technique gives the benefit of capacity testing for load and also having a stable rollback strategy as well. 
+
+A/B Testing is a key concept in DevOps in order to learn from production. Both blue-green deployments and canary releases are suitable options for rollouts of new features into production and learning from user behavior.
+
+## Blue Green Deployments and Canary Releases ##
+![](http://i.imgur.com/mBKU7Le.jpg)<br>
+**[Video link: https://youtu.be/YWNNMpRONxk]**
+
