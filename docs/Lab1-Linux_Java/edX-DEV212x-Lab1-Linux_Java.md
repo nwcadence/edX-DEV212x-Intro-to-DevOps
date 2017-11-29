@@ -197,7 +197,7 @@ Importing the MyShuttleCalc code from Github into VSTS
 In this task you will import the MyShuttleCalc code from Github into VSTS. If you have already done so, skip this step.
 
 1. Click on the `jdev` team project to navigate to it. Click on Code in the blue toolbar at the top to open the Code Hub.
-1. Click on the repo drop-down in the upper left (in the grey toolbar) and select "New repository".
+1. Click on the repo drop-down in the upper left (in the grey toolbar) and select "Import repository".
 
     ![Import a repository in the Code Hub](media/import-repo.png "Import a repository in the Code Hub")
 

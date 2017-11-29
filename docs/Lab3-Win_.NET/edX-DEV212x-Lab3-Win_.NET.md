@@ -1,5 +1,5 @@
-# edX DEV212x Intro to DevOps - LAB 3 (Java/Linux), Continuous Integration with Visual Studio Team Services #
-This is the Hands on Lab for module 3 of the Intro to DevOps course - the Linux/Java track.
+# edX DEV212x Intro to DevOps - LAB 3 (Win / .NET), Continuous Integration with Visual Studio Team Services #
+This is the Hands on Lab for module 3 of the Intro to DevOps course - the Win / .NET track.
 
 Once you have completed the videos and other course material for Module 3, you can continue with this lab.
 
@@ -112,7 +112,7 @@ We will now test the **Continuous Integration build (CI)** build we created in *
 
 ![](<media/open_home_controller.png>)
 
-**2.** After clicking **Edit**, add in a comment (e.g. `//comment`) to the top of the constuctor of the **HomeController.cs** file. Once complete, click **Save**. The Save button will actually commit the change on the master branch to the Git repo in VSTS and will automatically trigger a build.
+**2.** After clicking **Edit**, add in a comment (e.g. `//comment`) to the top of the constuctor of the **HomeController.cs** file. Once complete, click **Commit**. This commit the change on the master branch to the Git repo in VSTS and will automatically trigger a build.
 
 ![](<media/edit_home_controller.png>)
 

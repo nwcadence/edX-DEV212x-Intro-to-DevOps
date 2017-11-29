@@ -65,7 +65,7 @@ When you create a new Service Endpoint in VSTS, a wizard pops up. The wizard has
 
 1. Create an Azure Service Endpoint in Visual Studio Team Services
 	* Log in to your VSTS account.
-	* Open the project administration page by clicking the gear icon in the upper right.
+	* Open the project administration page by clicking the gear icon in the upper right of the blue menu (approximately the middle of the screen).
 	
 		![](media/1.png)
 	* Click on the Services tab
